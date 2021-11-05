@@ -155,6 +155,10 @@ impl RectangleNew {
     fn area(&self) -> u32 {
         self.width * self.height
     }
+}
+
+// example of multiple implementation blocks
+impl RectangleNew {
     // example of implementation method for the RectangleNew struct taking multiple params
     fn can_hold(&self, other: &RectangleNew) -> bool {
         self.width > other.width && self.height > other.height
