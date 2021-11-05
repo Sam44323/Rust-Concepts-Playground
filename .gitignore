@@ -2,3 +2,4 @@ target
 ..gpg
 .gpg
 .DS_Store
+.vscode
