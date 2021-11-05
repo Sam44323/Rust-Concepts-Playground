@@ -21,6 +21,12 @@ fn build_struct(email: String, username: String) -> User {
         sign_in_counter: 1,
     }
 }
+/*
+ * Example of a Tuple Struct
+ */
+
+struct Color(i32, i32, i32);
+struct Point(i32, i32, i32);
 
 fn main() {
     /*
@@ -61,4 +67,21 @@ fn main() {
     };
 
     println!("{}", user_c.username);
+
+    /*
+     *  Example of instantiating a tuple struct
+     */
+
+    let color = Color(0, 0, 0);
+    let origin = Point(10, 14, 15);
+
+    // Accessing a tuple struct field
+    println!(
+        "Color struct are as follows: {} {} {}",
+        color.0, color.1, color.2
+    );
+    println!(
+        "Origin struct are as follows: {} {} {}",
+        origin.0, origin.1, origin.2
+    );
 }
