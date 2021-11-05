@@ -136,6 +136,12 @@ fn calculate_area_struct() {
 Example of implementing methods for structs. Here we'll be using the same rectangle area example but with diff names
 */
 
+#[derive(Debug)]
+struct RectangleNew {
+    width: u32,
+    height: u32,
+}
+
 fn main() {
     // basic
     struct_basics_runner();
