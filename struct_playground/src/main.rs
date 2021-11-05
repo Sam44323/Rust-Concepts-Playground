@@ -34,7 +34,7 @@ struct Point(i32, i32, i32);
 
 struct Unit;
 
-fn main() {
+fn struct_basics_runner() {
     /*
      * Instantiating a struct example. For this case, we are instantiating User
      */
@@ -93,4 +93,8 @@ fn main() {
 
     // Example of instantiating a unit struct
     let unit = Unit;
+}
+
+fn main() {
+    struct_basics_runner();
 }
