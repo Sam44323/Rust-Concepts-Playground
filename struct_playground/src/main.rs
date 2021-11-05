@@ -142,6 +142,21 @@ struct RectangleNew {
     height: u32,
 }
 
+// implementing the area method for the RectangleNew struct
+impl RectangleNew {
+    fn area(&self) -> u32 {
+        self.width * self.height
+    }
+}
+
+fn calculate_area_struct_methods() {
+    let rect1 = RectangleNew {
+        width: 10,
+        height: 40,
+    };
+    println!("The area of the rectangle is {}", rect1.area());
+}
+
 fn main() {
     // basic
     struct_basics_runner();
@@ -151,4 +166,5 @@ fn main() {
     calculate_area_struct();
 
     // example for method implementation on structs
+    calculate_area_struct_methods();
 }
