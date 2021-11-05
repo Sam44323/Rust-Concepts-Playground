@@ -112,6 +112,7 @@ fn calculate_area_tuples() {
     Creating a program that calculates the area of a rectangle. Here we'll be implementing Struct for practice.
 */
 
+#[derive(Debug)]
 struct Rectangle {
     width: i32,
     height: i32,
@@ -127,6 +128,7 @@ fn calculate_area_struct() {
         height: 40,
     };
     println!("The area of the rectangle is {}", area_struct(&rect1));
+    println!("The rect1 value is {:?}", rect1);
 }
 
 fn main() {
