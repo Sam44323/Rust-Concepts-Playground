@@ -24,7 +24,7 @@ fn build_struct(email: String, username: String) -> User {
 
 fn main() {
     /*
-     * Instantiating a struct. For this case, we are instantiating User
+     * Instantiating a struct example. For this case, we are instantiating User
      */
     let mut user_a = User {
         active: true,
