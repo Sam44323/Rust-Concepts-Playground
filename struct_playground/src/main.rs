@@ -45,4 +45,15 @@ fn main() {
         String::from("joemarkberg@email.com"),
     );
     println!("{}", user_b.username);
+
+    /**
+     * Example of creating a new struct out of another struct
+     */
+    let user_c = User {
+        email: String::from("newexample@email.com"),
+        username: String::from("newexample"),
+        ..user_a
+    };
+
+    println!("{}", user_c.username);
 }
