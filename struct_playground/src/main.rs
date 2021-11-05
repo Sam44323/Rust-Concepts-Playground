@@ -147,14 +147,26 @@ impl RectangleNew {
     fn area(&self) -> u32 {
         self.width * self.height
     }
+
+    fn can_hold(&self, other: &RectangleNew) -> bool {
+        self.width > other.width && self.height > other.height
+    }
 }
 
 fn calculate_area_struct_methods() {
-    let rect1 = RectangleNew {
+    let rect_a = RectangleNew {
         width: 10,
         height: 40,
     };
-    println!("The area of the rectangle is {}", rect1.area());
+
+    let rect_b = RectangleNew {
+        width: 5,
+        height: 30,
+    };
+
+    println!("The area of the rectangle is {}", rect_a.area());
+    println!("Can rect_a hold rect_b? {}", rect_a.can_hold(&rect_b));
+    println!("Can rect_b hold rect_a? {}", rect_b.can_hold(&rect_a));
 }
 
 fn main() {
