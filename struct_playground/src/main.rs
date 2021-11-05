@@ -91,7 +91,7 @@ fn struct_basics_runner() {
         origin.0, origin.1, origin.2
     );
 
-    // Example of instantiating a unit struct
+    // Example of instantiating a unit(without any fields) struct
     let unit = Unit;
 }
 
