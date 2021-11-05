@@ -132,8 +132,17 @@ fn calculate_area_struct() {
     dbg!(&rect1); // stderr debugger example
 }
 
+/*
+Example of implementing methods for structs. Here we'll be using the same rectangle area example but with diff names
+*/
+
 fn main() {
+    // basic
     struct_basics_runner();
+
+    //code examples
     calculate_area_tuples();
     calculate_area_struct();
+
+    // example for method implementation on structs
 }
