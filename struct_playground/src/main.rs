@@ -144,10 +144,18 @@ struct RectangleNew {
 
 // implementing the area method for the RectangleNew struct
 impl RectangleNew {
+    // adding an associated function which acts as constructor
+    fn rectangle(size: u32) -> RectangleNew {
+        RectangleNew {
+            width: size,
+            height: size,
+        }
+    }
+
     fn area(&self) -> u32 {
         self.width * self.height
     }
-
+    // example of implementation method for the RectangleNew struct taking multiple params
     fn can_hold(&self, other: &RectangleNew) -> bool {
         self.width > other.width && self.height > other.height
     }
@@ -164,9 +172,15 @@ fn calculate_area_struct_methods() {
         height: 30,
     };
 
+    let rect_c = RectangleNew::rectangle(13);
+
     println!("The area of the rectangle is {}", rect_a.area());
     println!("Can rect_a hold rect_b? {}", rect_a.can_hold(&rect_b));
     println!("Can rect_b hold rect_a? {}", rect_b.can_hold(&rect_a));
+    println!(
+        "The area of the rectangle created out of associated function as a constructor is {}",
+        rect_c.area()
+    );
 }
 
 fn main() {
