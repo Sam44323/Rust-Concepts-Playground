@@ -129,6 +129,7 @@ fn calculate_area_struct() {
     };
     println!("The area of the rectangle is {}", area_struct(&rect1));
     println!("The rect1 value is {:?}", rect1);
+    dbg!(&rect1); // stderr debugger example
 }
 
 fn main() {
