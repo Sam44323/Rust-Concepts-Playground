@@ -117,7 +117,7 @@ struct Rectangle {
     height: i32,
 }
 
-fn area_struct(dimensions: Rectangle) -> i32 {
+fn area_struct(dimensions: &Rectangle) -> i32 {
     dimensions.width * dimensions.height
 }
 
@@ -126,7 +126,7 @@ fn calculate_area_struct() {
         width: 10,
         height: 40,
     };
-    println!("The area of the rectangle is {}", area_struct(rect1));
+    println!("The area of the rectangle is {}", area_struct(&rect1));
 }
 
 fn main() {
