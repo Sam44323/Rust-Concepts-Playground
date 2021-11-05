@@ -99,16 +99,38 @@ fn struct_basics_runner() {
     Creating a program that calculates the area of a rectangle. Here we'll be implementing Tuples for practice.
 */
 
-fn area(dimensions: (i32, i32)) -> i32 {
+fn area_tuples(dimensions: (i32, i32)) -> i32 {
     dimensions.0 * dimensions.1
 }
 
 fn calculate_area_tuples() {
     let rect1 = (30, 50);
-    println!("The area of the rectangle is {}", area(rect1));
+    println!("The area of the rectangle is {}", area_tuples(rect1));
+}
+
+/*
+    Creating a program that calculates the area of a rectangle. Here we'll be implementing Struct for practice.
+*/
+
+struct Rectangle {
+    width: i32,
+    height: i32,
+}
+
+fn area_struct(dimensions: Rectangle) -> i32 {
+    dimensions.width * dimensions.height
+}
+
+fn calculate_area_struct() {
+    let rect1 = Rectangle {
+        width: 10,
+        height: 40,
+    };
+    println!("The area of the rectangle is {}", area_struct(rect1));
 }
 
 fn main() {
     struct_basics_runner();
     calculate_area_tuples();
+    calculate_area_struct();
 }
