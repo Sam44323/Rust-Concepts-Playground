@@ -47,7 +47,12 @@ fn main() {
     println!("{}", user_b.username);
 
     /**
-     * Example of creating a new struct out of another struct
+     * Example of creating a new struct out of another struct.
+     */
+
+    /**
+     * Note:
+     *  In this example, we can no longer use user1 after creating user_b because the String in the username field of user_a was moved into user_b. If we had given user_b new String values for both email and username, and thus only used the active and sign_in_count values from user1, then user1 would still be valid after creating user_b. The types of active and sign_in_count are types that implement the Copy trait, so the behavior we discussed in the “Stack-Only Data: Copy” section would apply.
      */
     let user_c = User {
         email: String::from("newexample@email.com"),
