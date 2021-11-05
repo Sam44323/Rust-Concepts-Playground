@@ -28,6 +28,12 @@ fn build_struct(email: String, username: String) -> User {
 struct Color(i32, i32, i32);
 struct Point(i32, i32, i32);
 
+/*
+ * Example of a Unit Struct
+ */
+
+struct Unit;
+
 fn main() {
     /*
      * Instantiating a struct example. For this case, we are instantiating User
@@ -84,4 +90,7 @@ fn main() {
         "Origin struct are as follows: {} {} {}",
         origin.0, origin.1, origin.2
     );
+
+    // Example of instantiating a unit struct
+    let unit = Unit;
 }
