@@ -21,7 +21,6 @@ _A demo playground monorepo for all important concept regarding RUST_
 - Project: Low Level Implementation for a Multithreaded web-server
 
 **Filled with multi-docs for all the codes**
-Refer this link for more in-depth descriptions
-[RUST-BOOK](https://doc.rust-lang.org/book/)
+Refer this [RUST-BOOK](https://doc.rust-lang.org/book/) for more in-depth descriptions
 
 ---
