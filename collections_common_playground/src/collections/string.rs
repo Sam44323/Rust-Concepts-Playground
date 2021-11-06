@@ -47,6 +47,18 @@ pub mod Strings {
 
     let slice = &hello[0..4];
     println!("First 4 characters: {}", slice); // answer will be "Зд"(told ya! two bytes)
+                                               // if used [0..1], then it will be an error, cause 3 doesn't contain one byte of data
+  }
+
+  pub fn iterating_strings_and_bytes() {
+    // instead of using slicing for iterating, we can use .chars() for safe iteration. So that we can avoid issues like ☝️thing
+    for c in "Здравствуйте".chars() {
+      println!("{}", c);
+    }
+
+    for b in "Здравствуйте".bytes() {
+      println!("{}", b);
+    }
   }
 
   pub fn method_callers() {
@@ -54,5 +66,6 @@ pub mod Strings {
     concatenation();
     format_macro();
     slicing_strings();
+    iterating_strings_and_bytes();
   }
 }
