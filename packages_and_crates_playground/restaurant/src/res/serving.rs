@@ -11,6 +11,9 @@ pub mod Serving {
 
   pub fn take_payment() {
     println!("Payment taking in process!");
-    exit_the_restraunt();
   }
+}
+
+fn main() {
+  exit_the_restraunt();
 }
