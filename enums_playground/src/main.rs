@@ -66,8 +66,22 @@ fn multi_embed_enum_example() {
     chang_color.call(String::from("Change-Color"));
 }
 
+// example of using the Option enum
+
+#[derive(Debug)]
+enum Option<T> {
+    Some(T),
+    None,
+}
+
+fn option_enum_example() {
+    let some_number: Option<i8> = Option::Some(5);
+    println!("Example: {:?}", some_number);
+}
+
 fn main() {
     basic_enun_init();
     enum_embedded_example();
     multi_embed_enum_example();
+    option_enum_example();
 }
