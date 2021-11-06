@@ -1,6 +1,6 @@
 pub mod Vectors {
   pub fn creating_vector() -> Vec<i32> {
-    let mut v = Vec::new();
+    let mut v = Vec::new(); // we can also use vec! macro instewad of Vector::new();
     v.push(5); // pushing a new value
     v.push(6);
     v.push(7);
