@@ -1,4 +1,4 @@
-pub use hosting::Hosting::exit_the_restraunt;
+pub use hosting::Hosting;
 pub use serving::Serving;
 
 pub mod hosting;
