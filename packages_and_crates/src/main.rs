@@ -1,3 +1,3 @@
 fn main() {
-    println!("packages and crates!");
+    println!("Hello, world!");
 }
