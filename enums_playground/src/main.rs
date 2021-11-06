@@ -39,7 +39,28 @@ fn enum_embedded_example() {
     println!("home: {:?}", loopback);
 }
 
+#[derive(Debug)]
+enum Message {
+    Quit,
+    Move { x: i32, y: i32 },
+    Write(String),
+    ChangeColor(i32, i32, i32),
+}
+
+fn multi_embed_enum_example() {
+    let quit = Message::Quit;
+    let moveData = Message::Move { x: 10, y: 15 };
+    let write = Message::Write(String::from("hello"));
+    let changeColor = Message::ChangeColor(255, 0, 255);
+
+    println!("Quit: {:?}", quit);
+    println!("Move: {:?}", moveData);
+    println!("Write: {:?}", write);
+    println!("Change-Color: {:?}", changeColor);
+}
+
 fn main() {
     basic_enun_init();
     enum_embedded_example();
+    multi_embed_enum_example();
 }
