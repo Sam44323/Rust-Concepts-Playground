@@ -4,7 +4,7 @@ _A demo playground monorepo for all important concept regarding RUST_
 
 ---
 
-## **Topics**
+### **Topics**
 
 - Structs
 - Enums
