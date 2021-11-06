@@ -7,6 +7,10 @@ mod front_of_house {
         fn seat_at_table() {
             println!("Booked a seat at table!");
         }
+
+        pub fn exit_the_restraunt(){
+            println!("Exiting the restraunt!");
+        }
     }
 
     mod serving {
@@ -18,11 +22,13 @@ mod front_of_house {
             println!("Order serving in process!");
         }
 
-        fn take_payment() {
+        pub fn take_payment() {
             println!("Payment taking in process!");
+            super::hosting::exit_the_restraunt(); // example of using the super keyword for calling a function from ancestor module
         }
     }
 }
+
 
 pub fn eat_at_restaurant() {
     // Absolute path
