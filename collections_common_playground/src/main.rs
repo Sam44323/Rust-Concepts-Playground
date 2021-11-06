@@ -1,6 +1,6 @@
 mod collections;
-use collections::vector::Vectors::vectors_collections;
+use collections::vector::Vectors;
 
 fn main() {
-    vectors_collections();
+    Vectors::creating_vector();
 }

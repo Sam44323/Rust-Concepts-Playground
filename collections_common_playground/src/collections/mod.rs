@@ -1,2 +1,2 @@
 pub mod vector;
-pub use vector::Vectors::vectors_collections;
+pub use vector::Vectors;
