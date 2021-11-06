@@ -47,16 +47,23 @@ enum Message {
     ChangeColor(i32, i32, i32),
 }
 
+// example of implementing a method on an enum
+impl Message {
+    fn call(&self) -> &Self {
+        return self;
+    }
+}
+
 fn multi_embed_enum_example() {
     let quit = Message::Quit;
     let moveData = Message::Move { x: 10, y: 15 };
     let write = Message::Write(String::from("hello"));
     let changeColor = Message::ChangeColor(255, 0, 255);
 
-    println!("Quit: {:?}", quit);
-    println!("Move: {:?}", moveData);
-    println!("Write: {:?}", write);
-    println!("Change-Color: {:?}", changeColor);
+    println!("Quit: {:?}", quit.call());
+    println!("Move: {:?}", moveData.call());
+    println!("Write: {:?}", write.call());
+    println!("Change-Color: {:?}", changeColor.call());
 }
 
 fn main() {
