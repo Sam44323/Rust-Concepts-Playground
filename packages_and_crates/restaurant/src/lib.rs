@@ -13,7 +13,7 @@ mod front_of_house {
         }
     }
 
-    mod serving {
+    pub mod serving {
         fn take_order() {
             println!("Order taking in process!");
         }
