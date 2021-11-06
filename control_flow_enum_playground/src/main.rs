@@ -50,10 +50,28 @@ fn nested_matching_example(coin: CoinNew) -> Option<u8> {
         },
     }
 }
+
+// using the matcher for the Option
+
+fn plus_one(x: Option<i32>) -> Option<i32> {
+    match x {
+        None => None,
+        Some(i) => Some(i + 1),
+    }
+}
+
+fn plus_one_caller() {
+    let six = plus_one(Some(5));
+    let none = plus_one(None);
+    println!("{:?}", six);
+    println!("{:?}", none);
+}
+
 fn main() {
     value_in_cents(Coin::Penny);
     println!(
         "{:?}",
         nested_matching_example(CoinNew::Quarter(UsState::Alabama))
     );
+    plus_one_caller();
 }
