@@ -17,7 +17,15 @@ pub mod Strings {
     println!("Updated String: {}", s);
   }
 
+  pub fn concatenation() {
+    let s1 = String::from("Hello, ");
+    let s2 = String::from("world!");
+    let s3 = s1 + &s2; // note s1 has been moved here and can no longer be used
+    println!("Concatenated String: {}", s3);
+  }
+
   pub fn method_callers() {
     updating_strings();
+    concatenation();
   }
 }
