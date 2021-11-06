@@ -86,6 +86,28 @@ fn call_default_matcher() {
     println!("{ }", none);
 }
 
+// example of using if let vs match
+
+fn if_let_matcher() {
+    // using normal match pattern
+    let matcher_max = Some(4);
+    match matcher_max {
+        Some(4) => println!("This is a four!"),
+        Some(6) => println!("This is a six!"),
+        _ => println!("This is not a four or six!"),
+    }
+
+    // using if-let-else pattern
+    let if_let_max = Some(3u8);
+    if let Some(4) = if_let_max {
+        println!("This is a four!");
+    } else if let Some(6) = if_let_max {
+        println!("This is a six!");
+    } else {
+        println!("This is not a four or six!");
+    }
+}
+
 fn main() {
     value_in_cents(Coin::Penny);
     println!(
@@ -94,4 +116,5 @@ fn main() {
     );
     plus_one_caller();
     call_default_matcher();
+    if_let_matcher();
 }
