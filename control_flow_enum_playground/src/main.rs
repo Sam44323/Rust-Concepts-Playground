@@ -67,6 +67,25 @@ fn plus_one_caller() {
     println!("{:?}", none);
 }
 
+// example of using default(_) matcher
+
+fn default_matcher(x: Option<i32>) -> String {
+    match x {
+        Some(4) => String::from("Four!"),
+        Some(6) => String::from("Six!"),
+        _ => String::from("Not four or six!"),
+    }
+}
+
+fn call_default_matcher() {
+    let four = default_matcher(Some(4));
+    let six = default_matcher(Some(6));
+    let none = default_matcher(None);
+    println!("{ }", four);
+    println!("{ }", six);
+    println!("{ }", none);
+}
+
 fn main() {
     value_in_cents(Coin::Penny);
     println!(
@@ -74,4 +93,5 @@ fn main() {
         nested_matching_example(CoinNew::Quarter(UsState::Alabama))
     );
     plus_one_caller();
+    call_default_matcher();
 }
