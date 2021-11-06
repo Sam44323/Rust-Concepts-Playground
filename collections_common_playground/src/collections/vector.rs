@@ -20,8 +20,26 @@ pub mod Vectors {
     }
   }
 
+  pub fn enum_storing_vectors() {
+    // using enums to store multiple types in vectors
+    #[derive(Debug)]
+    enum SpreadsheetCell {
+      Int(i32),
+      Float(f64),
+      Text(String),
+    }
+
+    let row = vec![
+      SpreadsheetCell::Int(3),
+      SpreadsheetCell::Text(String::from("blue")),
+      SpreadsheetCell::Float(10.12),
+    ];
+    println!("{:?}", row);
+  }
+
   pub fn method_callers() {
     creating_vector();
     reading_vector();
+    enum_storing_vectors();
   }
 }
