@@ -49,21 +49,21 @@ enum Message {
 
 // example of implementing a method on an enum
 impl Message {
-    fn call(&self) -> &Self {
-        return self;
+    fn call(&self, message: String) {
+        println!("{}: {:?}", message, &self);
     }
 }
 
 fn multi_embed_enum_example() {
     let quit = Message::Quit;
-    let moveData = Message::Move { x: 10, y: 15 };
+    let move_data = Message::Move { x: 10, y: 15 };
     let write = Message::Write(String::from("hello"));
-    let changeColor = Message::ChangeColor(255, 0, 255);
+    let chang_color = Message::ChangeColor(255, 0, 255);
 
-    println!("Quit: {:?}", quit.call());
-    println!("Move: {:?}", moveData.call());
-    println!("Write: {:?}", write.call());
-    println!("Change-Color: {:?}", changeColor.call());
+    quit.call(String::from("Quit"));
+    move_data.call(String::from("Move"));
+    write.call(String::from("Write"));
+    chang_color.call(String::from("Change-Color"));
 }
 
 fn main() {
