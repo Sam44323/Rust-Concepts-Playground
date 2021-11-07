@@ -64,7 +64,7 @@ fn method_definition_generics_mixup() {
 
   impl<T, U> Point<T, U> {
     fn mixup<V, W>(self, other: Point<V, W>) -> Point<T, W> {
-      // creating a new pointer with mixed types
+      // creating a new Point with mixed types
       Point {
         x: self.x,
         y: other.y,
