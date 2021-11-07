@@ -21,7 +21,22 @@ pub mod HashMaps {
     println!("{:?}", scores);
   }
 
+  pub fn hashmap_ownership() {
+    let field_name = String::from("Favorite color");
+    let field_value = String::from("Blue");
+
+    let mut map = super::HashMap::new();
+    map.insert(field_name, field_value);
+
+    // field_name and field_value are invalid at this point,
+    // because they were moved, not borrowed.
+    // println!("{}", field_name);
+    // println!("{}", field_value);
+    // you can use references to make sure that the values are still valid but those should be available as long as the hashmap is valid
+  }
+
   pub fn method_callers() {
     collect_hashing();
+    hashmap_ownership();
   }
 }
