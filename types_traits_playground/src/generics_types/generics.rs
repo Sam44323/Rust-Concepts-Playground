@@ -4,11 +4,15 @@ fn struct_generics_single_type() {
     y: T,
   }
   let integer = Point { x: 5, y: 10 };
+
   //let float = Point { x: 1.0, y: 4.0 }; // will give an error because of type mismatch
+
   println!("X: {} ; Y: {}", integer.x, integer.y);
 }
 
 fn struct_generics_multiple_type() {
+  // example of declaring struct with multiple generic types
+
   struct Point<T, U> {
     x: T,
     y: U,
