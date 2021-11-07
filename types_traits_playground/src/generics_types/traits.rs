@@ -42,6 +42,10 @@ fn trait_implementation() {
       format!("{}: {}", self.username, self.content)
     }
   }
+  // this parameter accepts any type that implements the Summary trait
+  fn notify(item: impl Summary) {
+    println!("Breaking news! {}", item.summarize());
+  }
 
   let tweet = Tweet {
     username: String::from("horse_ebooks"),
@@ -53,6 +57,7 @@ fn trait_implementation() {
   // calling the methods from traits
   println!("1 new tweet: {}", tweet.summarize());
   println!("Message: {}", tweet.message());
+  notify(tweet);
 }
 
 pub fn traits_methods_caller() {
