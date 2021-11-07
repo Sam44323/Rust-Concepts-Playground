@@ -6,7 +6,7 @@
 
 // declaring a trait
 
-fn normal_trait_implementation() {
+fn trait_implementation() {
   struct NewsArticle {
     pub headline: String,
     pub location: String,
@@ -56,5 +56,5 @@ fn normal_trait_implementation() {
 }
 
 pub fn traits_methods_caller() {
-  normal_trait_implementation();
+  trait_implementation();
 }
