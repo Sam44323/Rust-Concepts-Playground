@@ -1,3 +1,6 @@
+mod generics_types;
+use generics_types::generic_method_caller;
+
 fn main() {
-    println!("Hello, world!");
+    generic_method_caller();
 }
