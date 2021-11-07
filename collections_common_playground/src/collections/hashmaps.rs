@@ -43,9 +43,20 @@ pub mod HashMaps {
     println!("Value for team blue: {:?}", scores.get(&team_name));
   }
 
+  pub fn iterating_hashmaps() {
+    let scores: super::HashMap<_, _> = create_hashmap();
+
+    //This code will print each pair in an arbitrary order:
+
+    for (key, value) in &scores {
+      println!("{}: {}", key, value);
+    }
+  }
+
   pub fn method_callers() {
     collect_hashing();
     hashmap_ownership();
-    accessing_hashmap_value()
+    accessing_hashmap_value();
+    iterating_hashmaps();
   }
 }
