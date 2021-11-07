@@ -60,6 +60,10 @@ pub mod HashMaps {
     println!("Initial value for blue: {:?}", scores.get("Blue"));
     scores.insert(String::from("Blue"), 25);
     println!("Updated value for blue: {:?}", scores.get("Blue"));
+
+    scores.entry(String::from("Orange")).or_insert(40);
+    // inserting a Value If the Key Has No Value
+    println!("Value for orange: {:?}", scores.get("Orange"));
   }
 
   pub fn method_callers() {
