@@ -24,6 +24,32 @@ fn struct_generics_multiple_type() {
   println!("X: {} ; Y: {}", multi_type.x, multi_type.y);
 }
 
+fn method_definition_generics() {
+  /*
+  We can implement methods on structs and enums
+  and use generic types in their definitions, too
+  */
+  struct Point<T> {
+    x: T,
+    y: T,
+  }
+
+  /*
+  Note that we have to declare T just after impl so we can use it to specify that we’re implementing methods on the type Point<T>. By declaring T as a generic type after impl, Rust can identify that the type in the angle brackets in Point is a generic type rather than a concrete type.
+  */
+
+  impl<T> Point<T> {
+    fn x(&self) -> &T {
+      &self.x
+    }
+  }
+
+  fn main() {
+    let p = Point { x: 5, y: 10 };
+    println!("p.x = {}", p.x());
+  }
+}
+
 pub fn generic_method_caller() {
   println!("generic_method_caller");
   struct_generics_single_type();
