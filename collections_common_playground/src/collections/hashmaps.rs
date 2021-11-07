@@ -37,7 +37,7 @@ pub mod HashMaps {
   }
 
   pub fn accessing_hashmap_value() {
-    let scores = create_hashmap();
+    let scores: super::HashMap<_, _> = create_hashmap();
 
     let team_name = String::from("Blue");
     println!("Value for team blue: {:?}", scores.get(&team_name));
