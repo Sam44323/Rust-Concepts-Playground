@@ -73,6 +73,16 @@ fn trait_implementation() {
     item_b.title_reloader();
   }
 
+  // example of returning types that implements a trait
+  fn returns_summarizable() -> impl Summary {
+    Tweet {
+      username: String::from("Hola!"),
+      content: String::from("of course, as you probably already know, people"),
+      reply: false,
+      retweet: false,
+    }
+  }
+
   let tweet = Tweet {
     username: String::from("horse_ebooks"),
     content: String::from("of course, as you probably already know, people"),
@@ -97,6 +107,9 @@ fn trait_implementation() {
   title_notifier(&news);
   println!("--------");
   bound_descriptor(&tweet, &news);
+  println!("--------");
+  let newTweet = returns_summarizable();
+  println!("{}", newTweet.summarize());
   println!("--------");
 }
 
