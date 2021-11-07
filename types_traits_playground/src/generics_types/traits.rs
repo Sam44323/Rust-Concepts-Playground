@@ -64,7 +64,11 @@ fn trait_implementation() {
   }
 
   // example of using for where for explicitly specifying the type for the trait bound parameter
-  fn bound_descriptor(item_a: &impl Summary, item_b: &(impl TitleReloader + Summary)) {
+  fn bound_descriptor<T, U>(item_a: &T, item_b: &U)
+  where
+    T: Summary,
+    U: Summary + TitleReloader,
+  {
     println!("{}", item_a.summarize());
     item_b.title_reloader();
   }
