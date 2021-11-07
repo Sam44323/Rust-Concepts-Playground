@@ -53,10 +53,20 @@ pub mod HashMaps {
     }
   }
 
+  pub fn updating_hashmaps() {
+    let mut scores: super::HashMap<_, _> = create_hashmap();
+    // overwriting a value
+
+    println!("Initial value for blue: {:?}", scores.get("Blue"));
+    scores.insert(String::from("Blue"), 25);
+    println!("Updated value for blue: {:?}", scores.get("Blue"));
+  }
+
   pub fn method_callers() {
     collect_hashing();
     hashmap_ownership();
     accessing_hashmap_value();
     iterating_hashmaps();
+    updating_hashmaps();
   }
 }
