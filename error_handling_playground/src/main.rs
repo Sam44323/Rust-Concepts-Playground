@@ -1,3 +1,6 @@
+mod errors;
+use errors::panic_modules_method_caller;
+
 fn main() {
-    println!("error-handling!");
+    panic_modules_method_caller();
 }
