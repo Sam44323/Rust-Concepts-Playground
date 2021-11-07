@@ -23,6 +23,11 @@ fn normal_trait_implementation() {
 
   pub trait Summary {
     fn summarize(&self) -> String;
+
+    // added a default implementation
+    fn message(&self) -> String {
+      String::from("How you doi'n reader?")
+    }
   }
 
   // example of implementing a trait on a type
@@ -47,6 +52,7 @@ fn normal_trait_implementation() {
 
   // calling the methods from traits
   println!("1 new tweet: {}", tweet.summarize());
+  println!("Message: {}", tweet.message());
 }
 
 pub fn traits_methods_caller() {
