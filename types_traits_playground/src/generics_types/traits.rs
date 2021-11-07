@@ -63,6 +63,12 @@ fn trait_implementation() {
     item.title_reloader();
   }
 
+  // example of using for where for explicitly specifying the type for the trait bound parameter
+  fn bound_descriptor(item_a: &impl Summary, item_b: &(impl TitleReloader + Summary)) {
+    println!("{}", item_a.summarize());
+    item_b.title_reloader();
+  }
+
   let tweet = Tweet {
     username: String::from("horse_ebooks"),
     content: String::from("of course, as you probably already know, people"),
@@ -83,7 +89,11 @@ fn trait_implementation() {
   println!("1 new tweet: {}", tweet.summarize());
   println!("Message: {}", tweet.message());
   notify(&tweet);
+  println!("--------");
   title_notifier(&news);
+  println!("--------");
+  bound_descriptor(&tweet, &news);
+  println!("--------");
 }
 
 pub fn traits_methods_caller() {
