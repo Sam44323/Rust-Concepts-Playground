@@ -30,6 +30,16 @@ fn trait_implementation() {
     }
   }
 
+  pub trait TitleReloader {
+    fn title_reloader(&self) {}
+  }
+
+  impl TitleReloader for NewsArticle {
+    fn title_reloader(&self) {
+      println!("Title reloaded!: {}", self.headline);
+    }
+  }
+
   // example of implementing a trait on a type
   impl Summary for NewsArticle {
     fn summarize(&self) -> String {
@@ -43,8 +53,14 @@ fn trait_implementation() {
     }
   }
   // this parameter accepts any type that implements the Summary trait
-  fn notify(item: impl Summary) {
+  fn notify(item: &impl Summary) {
     println!("Breaking news! {}", item.summarize());
+  }
+
+  // example of using multiple trait bound parameters
+  fn title_notifier(item: &(impl Summary + TitleReloader)) {
+    println!("Breaking news! {}", item.summarize());
+    item.title_reloader();
   }
 
   let tweet = Tweet {
@@ -54,10 +70,20 @@ fn trait_implementation() {
     retweet: false,
   };
 
+  let news = NewsArticle {
+    headline: String::from("Penguins win the Stanley Cup Championship!"),
+    location: String::from("Pittsburgh, PA, USA"),
+    author: String::from("Iceburgh"),
+    content: String::from(
+      "The Pittsburgh Penguins once again are the best hockey team in the NHL.",
+    ),
+  };
+
   // calling the methods from traits
   println!("1 new tweet: {}", tweet.summarize());
   println!("Message: {}", tweet.message());
-  notify(tweet);
+  notify(&tweet);
+  title_notifier(&news);
 }
 
 pub fn traits_methods_caller() {
