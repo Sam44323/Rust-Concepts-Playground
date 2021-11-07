@@ -73,7 +73,7 @@ fn trait_implementation() {
     item_b.title_reloader();
   }
 
-  // example of returning types that implements a trait
+  // example of returning types that implements a trait(for this case Summary)
   fn returns_summarizable() -> impl Summary {
     Tweet {
       username: String::from("Hola!"),
