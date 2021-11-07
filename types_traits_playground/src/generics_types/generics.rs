@@ -42,10 +42,41 @@ fn method_definition_generics() {
     fn x(&self) -> &T {
       &self.x
     }
+
+    fn y(&self) -> &T {
+      &self.y
+    }
   }
 
   let p = Point { x: 5, y: 10 };
   println!("p.x = {}", p.x());
+  println!("p.y = {}", p.y());
+}
+
+fn method_definition_generics_mixup() {
+  /*
+  We can mix up generic types and concrete types in method definitions
+  */
+  struct Point<T, U> {
+    x: T,
+    y: U,
+  }
+
+  impl<T, U> Point<T, U> {
+    fn mixup<V, W>(self, other: Point<V, W>) -> Point<T, W> {
+      // creating a new pointer with mixed types
+      Point {
+        x: self.x,
+        y: other.y,
+      }
+    }
+  }
+
+  let p1 = Point { x: 5, y: 10.4 };
+  let p2 = Point { x: "Hello", y: 'c' };
+
+  let p3 = p1.mixup(p2);
+  println!("p3.x = {}, p3.y = {}", p3.x, p3.y);
 }
 
 pub fn generic_method_caller() {
@@ -53,4 +84,5 @@ pub fn generic_method_caller() {
   struct_generics_single_type();
   struct_generics_multiple_type();
   method_definition_generics();
+  method_definition_generics_mixup();
 }
