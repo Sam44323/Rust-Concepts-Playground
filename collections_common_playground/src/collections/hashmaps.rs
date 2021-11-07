@@ -1,13 +1,14 @@
 use std::collections::HashMap;
 
 pub mod HashMaps {
-  pub fn create_hashmap() {
+  pub fn create_hashmap() -> super::HashMap<String, i32> {
     let mut scores = super::HashMap::new(); // creating a hashmap
 
     // inserting values to hashmap
 
     scores.insert(String::from("Blue"), 10);
     scores.insert(String::from("Yellow"), 50);
+    scores
   }
 
   pub fn collect_hashing() {
@@ -35,8 +36,16 @@ pub mod HashMaps {
     // you can use references to make sure that the values are still valid but those should be available as long as the hashmap is valid
   }
 
+  pub fn accessing_hashmap_value() {
+    let scores = create_hashmap();
+
+    let team_name = String::from("Blue");
+    println!("Value for team blue: {:?}", scores.get(&team_name));
+  }
+
   pub fn method_callers() {
     collect_hashing();
     hashmap_ownership();
+    accessing_hashmap_value()
   }
 }
