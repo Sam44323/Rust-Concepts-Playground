@@ -6,8 +6,48 @@
 
 // declaring a trait
 
-pub trait Summary {
-  fn summarize(&self) -> String;
+fn normal_trait_implementation() {
+  struct NewsArticle {
+    pub headline: String,
+    pub location: String,
+    pub author: String,
+    pub content: String,
+  }
+
+  struct Tweet {
+    pub username: String,
+    pub content: String,
+    pub reply: bool,
+    pub retweet: bool,
+  }
+
+  pub trait Summary {
+    fn summarize(&self) -> String;
+  }
+
+  // example of implementing a trait on a type
+  impl Summary for NewsArticle {
+    fn summarize(&self) -> String {
+      format!("{}, by {} ({})", self.headline, self.author, self.location)
+    }
+  }
+
+  impl Summary for Tweet {
+    fn summarize(&self) -> String {
+      format!("{}: {}", self.username, self.content)
+    }
+  }
+
+  let tweet = Tweet {
+    username: String::from("horse_ebooks"),
+    content: String::from("of course, as you probably already know, people"),
+    reply: false,
+    retweet: false,
+  };
+
+  println!("1 new tweet: {}", tweet.summarize());
 }
 
-pub fn traits_methods_caller() {}
+pub fn traits_methods_caller() {
+  normal_trait_implementation();
+}
