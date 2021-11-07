@@ -44,14 +44,13 @@ fn method_definition_generics() {
     }
   }
 
-  fn main() {
-    let p = Point { x: 5, y: 10 };
-    println!("p.x = {}", p.x());
-  }
+  let p = Point { x: 5, y: 10 };
+  println!("p.x = {}", p.x());
 }
 
 pub fn generic_method_caller() {
   println!("generic_method_caller");
   struct_generics_single_type();
   struct_generics_multiple_type();
+  method_definition_generics();
 }
