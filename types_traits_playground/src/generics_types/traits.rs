@@ -45,6 +45,7 @@ fn normal_trait_implementation() {
     retweet: false,
   };
 
+  // calling the methods from traits
   println!("1 new tweet: {}", tweet.summarize());
 }
 
