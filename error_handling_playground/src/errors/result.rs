@@ -26,7 +26,14 @@ pub fn error_type_handler() {
     },
   }
 }
+
+pub fn unwrap_expect_error_handlers() {
+  let f = File::open("hello.txt").unwrap(); // will throw and error if operation is not successful
+  let f = File::open("hello.txt").expect("Failed to open hello.txt"); // will do same as unwrap but let us choose the panic message on error
+}
+
 pub fn result_modules_method_caller() {
   result_error_handler();
   error_type_handler();
+  unwrap_expect_error_handlers();
 }
