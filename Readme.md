@@ -1,6 +1,6 @@
 # Rust demo playground
 
-_A demo playground monorepo for all important concept regarding RUST_
+_A demo playground monorepo for all important concepts regarding RUST_
 
 ---
 
