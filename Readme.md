@@ -13,7 +13,7 @@ _A demo playground monorepo for all important concept regarding RUST_
 - Error-Handling (Done)
 - Generic Types, Traits and Lifetimes (Done)
 - Tests (Done)
-- I/O Operations (Pending)
+- I/O Operations (In-Progress)
 - Functional-Language Features (Pending)
 - Cargo (Pending)
 - Concurrency (Pending)
