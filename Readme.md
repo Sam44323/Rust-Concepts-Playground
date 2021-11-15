@@ -20,6 +20,8 @@ _A demo playground monorepo for all important concept regarding RUST_
 - OOP (Pending)
 - Project: Low Level Implementation for a Multithreaded web-server (Pending)
 
+---
+
 **Filled with multi-docs embedded for all the codes!**
 Refer this [RUST-BOOK](https://doc.rust-lang.org/book/) for more in-depth descriptions
 
