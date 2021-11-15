@@ -38,7 +38,10 @@ fn struct_lifetimes() {
   println!("Structs using lifetimes: {}", i.part);
 }
 
-// example of using the static lifetime. It means the reference can live as long as the duration of the program.
+/*
+example of using the static lifetime.
+It means the reference can live as long as the duration of the program.
+*/
 fn static_lifetime() {
   let s: &'static str = "I have a static lifetime.";
   println!("Static lifetime: {}", s);
