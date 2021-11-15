@@ -13,12 +13,12 @@ _A demo playground monorepo for all important concept regarding RUST_
 - Error-Handling (Done)
 - Generic Types, Traits and Lifetimes (Done)
 - Tests (Done)
-- I/O Operations <Pending>
-- Functional-Language Features <Pending>
-- Cargo <Pending>
-- Concurrency <Pending>
-- OOP <Pending>
-- Project: Low Level Implementation for a Multithreaded web-server <Pending>
+- I/O Operations (Pending)
+- Functional-Language Features (Pending)
+- Cargo (Pending)
+- Concurrency (Pending)
+- OOP (Pending)
+- Project: Low Level Implementation for a Multithreaded web-server (Pending)
 
 **Filled with multi-docs for all the codes!**
 Refer this [RUST-BOOK](https://doc.rust-lang.org/book/) for more in-depth descriptions
