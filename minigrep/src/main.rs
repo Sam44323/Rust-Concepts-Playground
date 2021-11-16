@@ -59,5 +59,8 @@ fn main() {
         println!("Problem parsing arguments: {}", err);
         process::exit(1);
     });
-    println!("Searching for {} in {}", config.query, config.filename);
+    if let Err(e) = filereader(config) {
+        println!("Application error: {}", e);
+        process::exit(1);
+    }
 }
