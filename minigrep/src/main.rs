@@ -17,7 +17,7 @@ fn main() {
     ------
     As we saw when we printed the vector, the program’s name takes up the first value in the vector at args[0], so we’re starting at index 1.
     */
-    let query = &cli_args[1];
-    let filename = &cli_args[2];
+    let query = &cli_args[1]; // string to search for
+    let filename = &cli_args[2]; // file to search for the string
     println!("Searching for {} in {}", query, filename);
 }
