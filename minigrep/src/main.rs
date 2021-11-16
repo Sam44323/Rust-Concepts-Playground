@@ -1,4 +1,5 @@
 use std::env;
+use std::fs;
 
 /*
 use of std::env::args
@@ -19,5 +20,9 @@ fn main() {
     */
     let query = &cli_args[1]; // string to search
     let filename = &cli_args[2]; // file to search for the string
+
+    // reading the content for the files
+    let contents = fs::read_to_string(filename).expect("Something went wrong reading the file");
     println!("Searching for {} in {}", query, filename);
+    println!("With text:\n{}", contents);
 }
