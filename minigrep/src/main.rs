@@ -35,12 +35,15 @@ impl Config {
     }
 }
 
+fn filereader(config: Config) {
+    let contents =
+        fs::read_to_string(&config.filename).expect("Something went wrong reading the file");
+    println!("With text:\n{}", contents);
+}
+
 fn main() {
     let cli_args: Vec<String> = env::args().collect();
     let config = Config::new(&cli_args);
-    // reading the content for the files
-    let contents =
-        fs::read_to_string(&config.filename).expect("Something went wrong reading the file");
     println!("Searching for {} in {}", config.query, config.filename);
-    println!("With text:\n{}", contents);
+    filereader(config);
 }
