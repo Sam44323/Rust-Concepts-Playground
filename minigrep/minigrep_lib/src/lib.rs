@@ -34,6 +34,7 @@ Note:
 For the error type, we used the trait object Box<dyn Error>. For now, just know that Box<dyn Error> means the function will return a type that implements the Error trait, but we don’t have to specify what particular type the return value will be. This gives us flexibility to return error values that may be of different types in different error cases. The dyn keyword is short for “dynamic.”
 */
 
+
 pub fn file_reader(config: Config) -> Result<(), Box<dyn Error>> {
     let contents =
         fs::read_to_string(&config.filename).expect("Something went wrong reading the file");
