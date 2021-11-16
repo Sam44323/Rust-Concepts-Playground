@@ -11,16 +11,20 @@ Note: regarding iterators:
 Iterators produce a series of values, and we can call the collect method on an iterator to turn it into a collection, such as a vector, containing all the elements the iterator produces.
 */
 
-fn main() {
-    let cli_args: Vec<String> = env::args().collect();
+fn parse_config(args: &[String]) -> (&str, &str) {
     /*
     Note:
     ------
     As we saw when we printed the vector, the program’s name takes up the first value in the vector at args[0], so we’re starting at index 1.
     */
-    let query = &cli_args[1]; // string to search
-    let filename = &cli_args[2]; // file to search for the string
+    let query = &args[1];
+    let filename = &args[2];
+    (query, filename)
+}
 
+fn main() {
+    let cli_args: Vec<String> = env::args().collect();
+    let (query, filename) = parse_config(&cli_args);
     // reading the content for the files
     let contents = fs::read_to_string(filename).expect("Something went wrong reading the file");
     println!("Searching for {} in {}", query, filename);
