@@ -24,10 +24,13 @@ impl Config {
         As we saw when we printed the vector, the program’s name takes up the first value in the vector at args[0], so we’re starting at index 1.
         */
 
+        if args.len() < 3 {
+            panic!("not enough arguments");
+        }
+
         // This will make a full copy of the data for the Config instance to own
         let query = args[1].clone();
         let filename = args[2].clone();
-
         Config { query, filename }
     }
 }
