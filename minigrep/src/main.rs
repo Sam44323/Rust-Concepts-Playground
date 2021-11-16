@@ -12,5 +12,12 @@ Iterators produce a series of values, and we can call the collect method on an i
 
 fn main() {
     let cli_args: Vec<String> = env::args().collect();
-    println!("{:?}", cli_args);
+    /*
+    Note:
+    ------
+    As we saw when we printed the vector, the program’s name takes up the first value in the vector at args[0], so we’re starting at index 1.
+    */
+    let query = &cli_args[1];
+    let filename = &cli_args[2];
+    println!("Searching for {} in {}", query, filename);
 }
