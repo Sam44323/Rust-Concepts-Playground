@@ -1,0 +1,25 @@
+extern crate minigrep_lib;
+use std::env;
+use std::process;
+
+use minigrep_lib::grep;
+
+fn main() {
+    // --snip--
+    let args: Vec<String> = env::args().collect();
+
+    let config = grep::Config::new(&args).unwrap_or_else(|err| {
+        println!("Problem parsing arguments: {}", err);
+        process::exit(1);
+    });
+
+    println!("Searching for {}", config.query);
+    println!("In file {}", config.filename);
+
+    if let Err(e) = grep::file_reader(config) {
+        // --snip--
+        println!("Application error: {}", e);
+
+        process::exit(1);
+    }
+}
