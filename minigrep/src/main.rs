@@ -1,5 +1,7 @@
 use std::env;
+use std::error::Error;
 use std::fs;
+use std::process;
 
 /*
 use of std::env::args
@@ -17,7 +19,7 @@ struct Config {
 }
 
 impl Config {
-    fn new(args: &[String]) -> Self {
+    fn new(args: &[String]) -> Result<Config, &str> {
         /*
         Note:
         ------
@@ -25,25 +27,37 @@ impl Config {
         */
 
         if args.len() < 3 {
-            panic!("not enough arguments");
+            return Err("not enough arguments");
         }
 
         // This will make a full copy of the data for the Config instance to own
         let query = args[1].clone();
         let filename = args[2].clone();
-        Config { query, filename }
+        Ok(Config { query, filename })
     }
 }
 
-fn filereader(config: Config) {
+/*
+Note:
+------
+ First, we changed the return type of the run function to Result<(), Box<dyn Error>>. This function previously returned the unit type, (), and we keep that as the value returned in the Ok case.
+
+For the error type, we used the trait object Box<dyn Error>. For now, just know that Box<dyn Error> means the function will return a type that implements the Error trait, but we don’t have to specify what particular type the return value will be. This gives us flexibility to return error values that may be of different types in different error cases. The dyn keyword is short for “dynamic.”
+*/
+
+fn filereader(config: Config) -> Result<(), Box<dyn Error>> {
     let contents =
         fs::read_to_string(&config.filename).expect("Something went wrong reading the file");
     println!("With text:\n{}", contents);
+
+    Ok(())
 }
 
 fn main() {
     let cli_args: Vec<String> = env::args().collect();
-    let config = Config::new(&cli_args);
+    let config = Config::new(&cli_args).unwrap_or_else(|err| {
+        println!("Problem parsing arguments: {}", err);
+        process::exit(1);
+    });
     println!("Searching for {} in {}", config.query, config.filename);
-    filereader(config);
 }
