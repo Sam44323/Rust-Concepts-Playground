@@ -5,7 +5,6 @@ use std::process;
 use minigrep_lib::grep;
 
 fn main() {
-    // --snip--
     let args: Vec<String> = env::args().collect();
 
     let config = grep::Config::new(&args).unwrap_or_else(|err| {
@@ -17,9 +16,7 @@ fn main() {
     println!("In file {}", config.filename);
 
     if let Err(e) = grep::file_reader(config) {
-        // --snip--
         println!("Application error: {}", e);
-
         process::exit(1);
     }
 }
