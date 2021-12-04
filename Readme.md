@@ -2,6 +2,8 @@
 
 _Monorepo for all important concepts regarding RUST_
 
+![Rust](https://img.shields.io/badge/-Ethereum-333333?style=for-the-badge&logo=rust&logoColor=61dbfb)
+
 ---
 
 ### **Topics**
