@@ -36,7 +36,9 @@ For the error type, we used the trait object Box<dyn Error>. For now, just know 
 pub fn file_reader(config: Config) -> Result<(), Box<dyn Error>> {
     let contents =
         fs::read_to_string(&config.filename).expect("Something went wrong reading the file");
-    println!("With text:\n{}", contents);
+    for line in search(&config.query, &contents) {
+        println!("{}", line);
+    }
 
     Ok(())
 }
