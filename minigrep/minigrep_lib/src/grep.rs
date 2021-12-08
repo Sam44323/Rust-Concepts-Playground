@@ -60,7 +60,7 @@ mod tests {
     use super::*;
 
     #[test]
-    fn result_out() {
+    fn case_sensitive_test() {
         let query = "product";
         let contents = "
 Rust:
