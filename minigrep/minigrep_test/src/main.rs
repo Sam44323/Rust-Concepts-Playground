@@ -15,6 +15,7 @@ fn main() {
     println!("Searching for {}", config.query);
     println!("In file {}", config.filename);
 
+    // using the Error switch pattern for catching errors while reading the file
     if let Err(e) = grep::file_reader(config) {
         println!("Application error: {}", e);
         process::exit(1);
