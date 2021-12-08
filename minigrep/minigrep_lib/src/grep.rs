@@ -60,7 +60,7 @@ mod tests {
     #[test]
     fn result_out() {
         let query = "product";
-        let contents = "\
+        let contents = "
 Rust:
 safe, fast, productive.
 Pick three.";
