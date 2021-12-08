@@ -1,3 +1,4 @@
+use std::env;
 use std::error::Error;
 use std::fs;
 
@@ -19,13 +20,15 @@ impl Config {
             return Err("not enough arguments");
         }
 
+        let case_sensitive = env::var("CASE_INSENSITIVE").is_err();
+
         // This will make a full copy of the data for the Config instance to own
         let query = args[1].clone();
         let filename = args[2].clone();
         Ok(Config {
             query,
             filename,
-            case_sensitive: true,
+            case_sensitive,
         })
     }
 }
