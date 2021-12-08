@@ -4,6 +4,7 @@ use std::fs;
 pub struct Config {
     pub query: String,
     pub filename: String,
+    pub case_sensitive: bool,
 }
 
 impl Config {
@@ -21,7 +22,11 @@ impl Config {
         // This will make a full copy of the data for the Config instance to own
         let query = args[1].clone();
         let filename = args[2].clone();
-        Ok(Config { query, filename })
+        Ok(Config {
+            query,
+            filename,
+            case_sensitive: true,
+        })
     }
 }
 
