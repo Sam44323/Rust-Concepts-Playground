@@ -15,7 +15,7 @@ _Monorepo for all important concepts regarding RUST_
 - Error-Handling (Done)
 - Generic Types, Traits and Lifetimes (Done)
 - Tests (Done)
-- I/O Operations (In-Progress)
+- I/O Operations (Done)
 - Functional-Language Features (Pending)
 - Cargo (Pending)
 - Concurrency (Pending)

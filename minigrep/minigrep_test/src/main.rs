@@ -5,7 +5,7 @@ use std::process;
 use minigrep_lib::grep;
 
 fn main() {
-    let args: Vec<String> = env::args().collect();
+    let args: Vec<String> = env::args().collect(); // for getting and parsing the cli arguments
 
     let config = grep::Config::new(&args).unwrap_or_else(|err| {
         eprintln!("Problem parsing arguments: {}", err);
