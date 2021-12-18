@@ -12,7 +12,7 @@ fn generate_workout(intensity: u32, random_number: u32) {
     - let statement means expensive_closure contains the definition of an anonymous function, not the resulting value  of calling the anonymous function. Recall that we’re using a closure because we want to define the code to call at one point, store that code, and call it at a later point; the code we want to call is now stored in expensive_closure.
      */
 
-    let expensive_result = |num| {
+    let expensive_result = |num: u32| -> u32 {
         println!("calculating slowly...");
         thread::sleep(Duration::from_secs(2));
         num
