@@ -1,23 +1,31 @@
 use std::thread;
 use std::time::Duration;
 
-fn calculation_simualated_async(intensity: u32) -> u32 {
-    println!("calculating slowly...");
-    thread::sleep(Duration::from_secs(2));
-    intensity
-}
-
 fn generate_workout(intensity: u32, random_number: u32) {
-    let expensive_result = calculation_simualated_async(intensity);
+    /*
+    Example of creating a closure function and storing it in a variable.
+    Method for defining a closure
+    -----------------------------
+    - The closure definition comes after the = to assign it to the variable expensive_closure.To define a closure,
+      we start with a pair of vertical pipes (|), inside which we specify the parameters to the closure
+
+    - let statement means expensive_closure contains the definition of an anonymous function, not the resulting value  of calling the anonymous function. Recall that we’re using a closure because we want to define the code to call at one point, store that code, and call it at a later point; the code we want to call is now stored in expensive_closure.
+     */
+
+    let expensive_result = |num| {
+        println!("calculating slowly...");
+        thread::sleep(Duration::from_secs(2));
+        num
+    };
 
     if intensity < 25 {
-        println!("Today, do {} pushups!", expensive_result);
-        println!("Next, do {} situps!", expensive_result);
+        println!("Today, do {} pushups!", expensive_result(intensity));
+        println!("Next, do {} situps!", expensive_result(intensity));
     } else {
         if random_number == 3 {
             println!("Take a break today! Remember to stay hydrated!");
         } else {
-            println!("Today, run for {} minutes!", expensive_result);
+            println!("Today, run for {} minutes!", expensive_result(intensity));
         }
     }
 }
