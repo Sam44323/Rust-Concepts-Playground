@@ -8,23 +8,16 @@ fn calculation_simualated_async(intensity: u32) -> u32 {
 }
 
 fn generate_workout(intensity: u32, random_number: u32) {
+    let expensive_result = calculation_simualated_async(intensity);
+
     if intensity < 25 {
-        println!(
-            "Today, do {} pushups!",
-            calculation_simualated_async(intensity)
-        );
-        println!(
-            "Next, do {} situps!",
-            calculation_simualated_async(intensity)
-        );
+        println!("Today, do {} pushups!", expensive_result);
+        println!("Next, do {} situps!", expensive_result);
     } else {
         if random_number == 3 {
             println!("Take a break today! Remember to stay hydrated!");
         } else {
-            println!(
-                "Today, run for {} minutes!",
-                calculation_simualated_async(intensity)
-            );
+            println!("Today, run for {} minutes!", expensive_result);
         }
     }
 }
