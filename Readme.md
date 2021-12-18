@@ -20,7 +20,7 @@ _Monorepo for all important concepts regarding RUST_
 - Cargo (Pending)
 - Concurrency (Pending)
 - OOP (Pending)
-- Project: Low Level Implementation for a Multithreaded web-server (Pending)
+- Project: Low Level Implementation for a Multi-threaded web-server (Pending)
 
 ---
 
