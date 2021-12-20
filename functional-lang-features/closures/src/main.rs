@@ -1,6 +1,11 @@
 use std::thread;
 use std::time::Duration;
 
+/*
+ * Important:
+ * Each closure instance has its own unique anonymous type: that is, even if two closures have the same signature,  their types are still considered different
+ */
+
 fn generate_workout(intensity: u32, random_number: u32) {
     /*
     Example of creating a closure function and storing it in a variable.
