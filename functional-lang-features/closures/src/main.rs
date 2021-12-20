@@ -7,6 +7,9 @@ use std::time::Duration;
  */
 
 // example of declaring a struct with closures
+/**
+ * The Cacher struct has a calculation field of the generic type T. The trait bounds on T specify that it’s a closure by using the Fn trait. Any closure we want to store in the calculation field must have one u32 parameter (specified within the parentheses after Fn) and must return a u32
+ */
 
 struct Cacher<T>
 where
