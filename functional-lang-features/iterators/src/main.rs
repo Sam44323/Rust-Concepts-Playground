@@ -60,11 +60,49 @@ fn iterator_producer() {
     println!("{}", v2[0]);
 }
 
+/**
+ * Creating own iterator with the Iterator trait
+ */
+
+fn iterator_creation() {
+    struct Counter {
+        count: u32,
+    }
+
+    impl Counter {
+        fn new() -> Counter {
+            Counter { count: 0 }
+        }
+    }
+
+    // implementing the iterator for Counter using the Iterator trait
+    impl Iterator for Counter {
+        type Item = u32;
+
+        fn next(&mut self) -> Option<Self::Item> {
+            if self.count < 5 {
+                self.count += 1;
+                Some(self.count)
+            } else {
+                None
+            }
+        }
+    }
+    let mut counter = Counter::new();
+    println!("{:?}", counter.next());
+    println!("{:?}", counter.next());
+    println!("{:?}", counter.next());
+    println!("{:?}", counter.next());
+    println!("{:?}", counter.next());
+    println!("{:?}", counter.next());
+}
+
 fn main() {
     iterator_example();
     iterator_trait_implementation();
     iterator_deepdowns();
     consume_iterator_examples();
     iterator_producer();
+    iterator_creation();
     println!("Hello, world!");
 }
