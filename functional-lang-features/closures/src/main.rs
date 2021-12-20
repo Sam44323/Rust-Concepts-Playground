@@ -6,6 +6,16 @@ use std::time::Duration;
  * Each closure instance has its own unique anonymous type: that is, even if two closures have the same signature,  their types are still considered different
  */
 
+// example of declaring a struct with closures
+
+struct Cacher<T>
+where
+    T: Fn(u32) -> u32,
+{
+    calculation: T,
+    value: Option<u32>,
+}
+
 fn generate_workout(intensity: u32, random_number: u32) {
     /*
     Example of creating a closure function and storing it in a variable.
