@@ -49,10 +49,22 @@ fn consume_iterator_examples() {
     assert_eq!(total, 6);
 }
 
+/**
+ * We’ll use the collect method, which consumes the iterator and collects the resulting values into a collection data type.
+ */
+
+fn iterator_producer() {
+    let v1: Vec<i32> = vec![1, 2, 3];
+
+    let v2: Vec<_> = v1.iter().map(|x| x + 1).collect();
+    println!("{}", v2[0]);
+}
+
 fn main() {
     iterator_example();
     iterator_trait_implementation();
     iterator_deepdowns();
     consume_iterator_examples();
+    iterator_producer();
     println!("Hello, world!");
 }
