@@ -9,6 +9,8 @@ use std::time::Duration;
 // example of declaring a struct with closures
 /**
  * The Cacher struct has a calculation field of the generic type T. The trait bounds on T specify that it’s a closure by using the Fn trait. Any closure we want to store in the calculation field must have one u32 parameter (specified within the parentheses after Fn) and must return a u32
+ *
+ * The value field is of type Option<u32>. Before we execute the closure, value will be None. When code using a Cacher asks for the result of the closure, the Cacher will execute the closure at that time and store the result within a Some variant in the value field. Then if the code asks for the result of the closure again, instead of executing the closure again, the Cacher will return the result held in the Some variant.
  */
 
 struct Cacher<T>
@@ -17,6 +19,28 @@ where
 {
     calculation: T,
     value: Option<u32>,
+}
+
+impl<T> Cacher<T>
+where
+    T: Fn(u32) -> u32,
+{
+    fn new(calculation: T) -> Cacher<T> {
+        Cacher {
+            calculation,
+            value: None,
+        }
+    }
+    fn value(&mut self, arg: u32) -> u32 {
+        match self.value {
+            Some(v) => v,
+            None => {
+                let v = (self.calculation)(arg);
+                self.value = Some(v);
+                v
+            }
+        }
+    }
 }
 
 fn generate_workout(intensity: u32, random_number: u32) {
@@ -29,21 +53,23 @@ fn generate_workout(intensity: u32, random_number: u32) {
 
     - let statement means expensive_closure contains the definition of an anonymous function, not the resulting value  of calling the anonymous function. Recall that we’re using a closure because we want to define the code to call at one point, store that code, and call it at a later point; the code we want to call is now stored in expensive_closure.
      */
-
-    let expensive_result = |num: u32| -> u32 {
+    let mut expensive_result = Cacher::new(|num| {
         println!("calculating slowly...");
         thread::sleep(Duration::from_secs(2));
         num
-    };
+    });
 
     if intensity < 25 {
-        println!("Today, do {} pushups!", expensive_result(intensity));
-        println!("Next, do {} situps!", expensive_result(intensity));
+        println!("Today, do {} pushups!", expensive_result.value(intensity));
+        println!("Next, do {} situps!", expensive_result.value(intensity));
     } else {
         if random_number == 3 {
             println!("Take a break today! Remember to stay hydrated!");
         } else {
-            println!("Today, run for {} minutes!", expensive_result(intensity));
+            println!(
+                "Today, run for {} minutes!",
+                expensive_result.value(intensity)
+            );
         }
     }
 }
