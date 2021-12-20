@@ -13,6 +13,15 @@ use std::time::Duration;
  * The value field is of type Option<u32>. Before we execute the closure, value will be None. When code using a Cacher asks for the result of the closure, the Cacher will execute the closure at that time and store the result within a Some variant in the value field. Then if the code asks for the result of the closure again, instead of executing the closure again, the Cacher will return the result held in the Some variant.
  */
 
+/**
+* Meaning of different types of function traits:
+- FnOnce consumes the variables it captures from its enclosing scope, known as the closure’s environment. To consume the captured variables, the closure must take ownership of these variables and move them into the closure when it is defined. The Once part of the name represents the fact that the closure can’t take ownership of the same variables more than once, so it can be called only once.
+
+- FnMut can change the environment because it mutably borrows values.
+
+- Fn borrows values from the environment immutably.
+*/
+
 struct Cacher<T>
 where
     T: Fn(u32) -> u32,
