@@ -1,6 +1,6 @@
 # Rust demo playground
 
-_Monorepo for all important concepts regarding RUST_
+_Monorepo for all the important concepts regarding RUST_
 
 ![Rust](https://img.shields.io/badge/-Rust-333333?style=for-the-badge&logo=rust&logoColor=61dbfb)
 
