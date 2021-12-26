@@ -11,7 +11,7 @@ struct IpAddr {
     address: String,
 }
 
-fn basic_enun_init() {
+fn basic_enum_init() {
     let home = IpAddr {
         kind: IpAddrKind::V4,
         address: String::from("127.0.0.1"),
@@ -80,7 +80,7 @@ fn option_enum_example() {
 }
 
 fn main() {
-    basic_enun_init();
+    basic_enum_init();
     enum_embedded_example();
     multi_embed_enum_example();
     option_enum_example();
