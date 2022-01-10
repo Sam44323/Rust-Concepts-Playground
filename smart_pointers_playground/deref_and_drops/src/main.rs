@@ -74,7 +74,7 @@ fn drop_runner() {
     let d = CustomSmartPointer {
         data: String::from("other stuff"),
     };
-    drop(d); // explicitly dropping a value
+    drop(d); // explicitly dropping a value before rust does automatic cleanup when the value goes out of scope
     println!("CustomSmartPointers created.");
 }
 
