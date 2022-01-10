@@ -74,7 +74,7 @@ fn drop_runner() {
     let d = CustomSmartPointer {
         data: String::from("other stuff"),
     };
-    drop(d);
+    drop(d); // explicitly dropping a value
     println!("CustomSmartPointers created.");
 }
 
