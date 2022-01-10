@@ -1,5 +1,5 @@
 [package]
-name = "Deref_and_Drop"
+name = "deref_and_drops"
 version = "0.1.0"
 edition = "2018"
 
