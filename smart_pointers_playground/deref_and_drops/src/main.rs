@@ -32,6 +32,8 @@ impl<T> MyBox<T> {
 
 /**
  * The Deref trait, provided by the standard library, requires us to implement one method named deref that borrows self and returns a reference to the inner data.
+ *
+ * The type Target = T; syntax defines an associated type for the Deref trait to use
  */
 
 impl<T> Deref for MyBox<T> {
