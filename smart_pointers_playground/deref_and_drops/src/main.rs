@@ -1,3 +1,5 @@
+use std::ops::Deref;
+
 /**
 - "*" is dereferencing that is getting the value that is being references using "&"
 * Diff between dereferencing_runner and box_dereferencing_runner:
@@ -20,7 +22,6 @@ fn box_dereferencing_runner() {
     assert_eq!(5, x);
     assert_eq!(5, *y);
 }
-
 struct MyBox<T>(T);
 
 impl<T> MyBox<T> {
@@ -29,10 +30,28 @@ impl<T> MyBox<T> {
     }
 }
 
-fn custom_pointer_initialization_for_Box() {}
+/**
+ * The Deref trait, provided by the standard library, requires us to implement one method named deref that borrows self and returns a reference to the inner data.
+ */
+
+impl<T> Deref for MyBox<T> {
+    type Target = T;
+
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+
+fn custom_pointer_initialization_for_box() {
+    let x = 5;
+    let y = MyBox::new(x);
+
+    assert_eq!(5, x);
+    assert_eq!(5, *y);
+}
 
 fn main() {
     dereferencing_runner();
     box_dereferencing_runner();
-    custom_pointer_initialization_for_Box();
+    custom_pointer_initialization_for_box();
 }
