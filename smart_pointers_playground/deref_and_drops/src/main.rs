@@ -44,10 +44,6 @@ impl<T> Deref for MyBox<T> {
     }
 }
 
-/**
- * The second trait important to the smart pointer pattern is Drop, which lets you customize what happens when a value is about to go out of scope. You can provide an implementation for the Drop trait on any type, and the code you specify can be used to release resources like files or network connections.
- */
-
 fn custom_pointer_initialization_for_box() {
     let x = 5;
     let y = MyBox::new(x);
@@ -56,8 +52,27 @@ fn custom_pointer_initialization_for_box() {
     assert_eq!(5, *y);
 }
 
+/**
+ * The second trait important to the smart pointer pattern is Drop, which lets you customize what happens when a value is about to go out of scope. You can provide an implementation for the Drop trait on any type, and the code you specify can be used to release resources like files or network connections.
+ */
+
+struct CustomSmartPointer {
+    data: String,
+}
+
+fn drop_runner() {
+    let c = CustomSmartPointer {
+        data: String::from("my stuff"),
+    };
+    let d = CustomSmartPointer {
+        data: String::from("other stuff"),
+    };
+    println!("CustomSmartPointers created.");
+}
+
 fn main() {
     dereferencing_runner();
     box_dereferencing_runner();
     custom_pointer_initialization_for_box();
+    drop_runner();
 }
