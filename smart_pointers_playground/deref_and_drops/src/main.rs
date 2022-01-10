@@ -1,3 +1,4 @@
+use std::mem::drop;
 use std::ops::Deref;
 
 /**
@@ -73,6 +74,7 @@ fn drop_runner() {
     let d = CustomSmartPointer {
         data: String::from("other stuff"),
     };
+    drop(d);
     println!("CustomSmartPointers created.");
 }
 
