@@ -21,7 +21,18 @@ fn box_dereferencing_runner() {
     assert_eq!(5, *y);
 }
 
+struct MyBox<T>(T);
+
+impl<T> MyBox<T> {
+    fn new(x: T) -> MyBox<T> {
+        MyBox(x)
+    }
+}
+
+fn custom_pointer_initialization_for_Box() {}
+
 fn main() {
     dereferencing_runner();
     box_dereferencing_runner();
+    custom_pointer_initialization_for_Box();
 }
