@@ -9,4 +9,6 @@ fn main() {
     io::stdin()
         .read_line(&mut guess) // adding the buffer_data to the guess variable from the stdin
         .expect("Failed to read line");
+
+    println!("You guessed: {}", guess);
 }
