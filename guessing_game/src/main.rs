@@ -9,6 +9,7 @@ fn main() {
     println!("Guess the number!");
 
     loop {
+        guess.clear();
         println!("Please input your guess.");
 
         io::stdin()
@@ -23,7 +24,10 @@ fn main() {
         match guess.cmp(&secret_number) {
             Ordering::Greater => println!("Too big!"),
             Ordering::Less => println!("Too small!"),
-            Ordering::Equal => println!("Win!"),
+            Ordering::Equal => {
+                println!("Win!");
+                break;
+            }
         }
     }
 }
