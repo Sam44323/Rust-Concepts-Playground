@@ -7,6 +7,6 @@ fn main() {
     println!("Please input your guess.");
 
     io::stdin()
-        .read_line(&mut guess) // adding the buffer_data to the guess variable
+        .read_line(&mut guess) // adding the buffer_data to the guess variable from the stdin
         .expect("Failed to read line");
 }
