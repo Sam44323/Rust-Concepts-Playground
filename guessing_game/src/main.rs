@@ -5,7 +5,7 @@ use std::io;
 
 fn main() {
     let mut guess: String = String::new();
-    let secret_number = rand::thread_rng().gen_range(1, 101); // high is exclusive
+    let secret_number = rand::thread_rng().gen_range(1, 101); // high is exclusive in range
 
     println!("Guess the number!");
 
