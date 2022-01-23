@@ -7,20 +7,23 @@ fn main() {
     let secret_number = rand::thread_rng().gen_range(1, 101); // high is exclusive
 
     println!("Guess the number!");
-    println!("Please input your guess.");
 
-    io::stdin()
-        .read_line(&mut guess) // concatenating the buffer_data to the guess variable from the stdin
-        .expect("Failed to read line");
+    loop {
+        println!("Please input your guess.");
 
-    println!("You guessed: {}", guess);
+        io::stdin()
+            .read_line(&mut guess) // concatenating the buffer_data to the guess variable from the stdin
+            .expect("Failed to read line");
 
-    // redeclaring guess to a number
-    let guess: u32 = guess.trim().parse().expect("Please type a number!"); // trim removes the whitespace from the string
+        println!("You guessed: {}", guess);
 
-    match guess.cmp(&secret_number) {
-        Ordering::Greater => println!("Too big!"),
-        Ordering::Less => println!("Too small!"),
-        Ordering::Equal => println!("Win!"),
+        // redeclaring guess to a number
+        let guess: u32 = guess.trim().parse().expect("Please type a number!"); // trim removes the whitespace from the string
+
+        match guess.cmp(&secret_number) {
+            Ordering::Greater => println!("Too big!"),
+            Ordering::Less => println!("Too small!"),
+            Ordering::Equal => println!("Win!"),
+        }
     }
 }
