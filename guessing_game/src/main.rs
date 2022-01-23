@@ -1,3 +1,4 @@
+use colored::*;
 use rand::Rng;
 use std::cmp::Ordering;
 use std::io;
@@ -22,10 +23,10 @@ fn main() {
         let guess: u32 = guess.trim().parse().expect("Please type a number!"); // trim removes the whitespace from the string
 
         match guess.cmp(&secret_number) {
-            Ordering::Greater => println!("Too big!"),
-            Ordering::Less => println!("Too small!"),
+            Ordering::Greater => println!("{}", "Too big!".red()),
+            Ordering::Less => println!("{}", "Too small!".red()),
             Ordering::Equal => {
-                println!("Win!");
+                println!("{}", "Win!".green());
                 break;
             }
         }
