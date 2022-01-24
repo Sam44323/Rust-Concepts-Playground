@@ -5,6 +5,11 @@ struct User {
     active: bool,
 }
 
+// example of using tuple_structs
+
+struct Color(i32, i32, i32);
+struct Point(i32, i32, i32);
+
 fn main() {
     let mut user: User = User {
         username: String::from("someone"),
