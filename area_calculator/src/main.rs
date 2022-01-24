@@ -44,7 +44,7 @@ fn main() {
 
     println!("Can rect hold rectangle {}", rect.can_hold(&another_rect));
 
-    let square = Rectangle::square(30);
+    let square = Rectangle::square(30); // creating a square
 
     println!("Square: {:#?}", square);
 }
