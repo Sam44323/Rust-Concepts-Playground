@@ -7,8 +7,8 @@ struct User {
 
 // example of using tuple_structs
 
-struct Color(i32, i32, i32);
-struct Point(i32, i32, i32);
+// struct Color(i32, i32, i32);
+// struct Point(i32, i32, i32);
 
 fn main() {
     let mut user: User = User {
