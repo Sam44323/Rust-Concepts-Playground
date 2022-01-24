@@ -19,7 +19,7 @@ fn main() {
 
         println!("You guessed: {}", guess);
 
-        // redeclaring guess to a number
+        // re-declaring guess to a number
         let guess: u32 = guess.trim().parse().expect("Please type a number!"); // trim removes the whitespace from the string
 
         match guess.cmp(&secret_number) {
