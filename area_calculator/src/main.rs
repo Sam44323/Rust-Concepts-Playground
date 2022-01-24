@@ -14,6 +14,15 @@ impl Rectangle {
     }
 }
 
+impl Rectangle {
+    fn square(size: u32) -> Rectangle {
+        Rectangle {
+            width: size,
+            height: size,
+        }
+    }
+}
+
 fn main() {
     let rect: Rectangle = Rectangle {
         width: 30,
@@ -34,4 +43,8 @@ fn main() {
     );
 
     println!("Can rect hold rectangle {}", rect.can_hold(&another_rect));
+
+    let square = Rectangle::square(30);
+
+    println!("Square: {:?}", square);
 }
