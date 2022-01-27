@@ -1,10 +1,8 @@
 [package]
-name = "adder"
+name = "add_nine"
 version = "0.1.0"
 edition = "2018"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
-add_one = {path = "../add_one"}
-add_nine = {path = "../add_nine"}

@@ -3,6 +3,10 @@
 version = 3
 
 [[package]]
+name = "add_nine"
+version = "0.1.0"
+
+[[package]]
 name = "add_one"
 version = "0.1.0"
 dependencies = [
@@ -13,6 +17,7 @@ dependencies = [
 name = "adder"
 version = "0.1.0"
 dependencies = [
+ "add_nine",
  "add_one",
 ]
 

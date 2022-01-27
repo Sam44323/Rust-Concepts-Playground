@@ -2,5 +2,6 @@
 
 members = [
   "adder",
-  "add_one"
+  "add_one",
+  "add_nine"
 ]
