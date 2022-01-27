@@ -1,3 +1,6 @@
+use add_one::add_one;
+
 fn main() {
-    println!("Hello, world!");
+    let n = add_one(5);
+    println!("{}", n);
 }
