@@ -1,6 +1,6 @@
 use add_one::add_one;
 
 fn main() {
-    let n = add_one(5);
-    println!("{}", n);
+    let n = 5;
+    println!("Hello! {} plus one is {}", n, add_one(n));
 }
