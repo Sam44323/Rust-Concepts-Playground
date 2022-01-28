@@ -14,7 +14,7 @@ fn main() {
 
     thread::spawn(move || {
         let msg = String::from("Hi! from the sender");
-        sender.send(msg).expect("The sender is offline!");
+        sender.send(msg).expect("The sender is offline!"); // send will take ownership of msg
     });
 
     let received = receiver.recv().expect("The receiver is offline!"); // recv will block the main thread execution while returning a result whereas the try_recv will return a result in immediate manner
