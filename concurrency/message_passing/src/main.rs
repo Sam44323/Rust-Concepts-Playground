@@ -1,3 +1,22 @@
+use std::sync::mpsc;
+use std::thread;
+
+/**
+ * MPSC means, multi producer and single consumer. It means a channel can have multiple senders and one receiver.
+ */
+
 fn main() {
-    println!("Hello, world!");
+    let (sender, receiver) = mpsc::channel();
+
+    /*
+     * we are using move so that sender is scoped to the closure, cause passing senders between threads can be a security risk. If the receiving end is dropped due to some reason, the unwrap will panic and throw and error
+     */
+
+    thread::spawn(move || {
+        let msg = String::from("Hi! from the sender");
+        sender.send(msg).expect("The sender is offline!");
+    });
+
+    let received = receiver.recv().expect("The receiver is offline!"); // recv will block the main thread execution while returning a result whereas the try_recv will return a result in immediate manner
+    println!("{}", received);
 }
