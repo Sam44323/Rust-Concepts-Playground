@@ -6,4 +6,9 @@ fn main() {
      */
 
     let m = Mutex::new(5);
+
+    {
+        let mut num = m.lock().unwrap(); // as num contains MutexGuard, it points to data for the duration of the block using Deref
+        *num = 6;
+    }
 }
