@@ -4,6 +4,8 @@ use std::thread;
 fn main() {
     /*
      * Mutex uses locking system to ensure that only one thread can access the data at a time. When accessing, it locks the data during tapping and when done, it unlocks the data.
+     *
+     * As Mutex-es uses internal mutability, so we can update the value for counter even after counter is not declared with mut
      */
 
     // Arc allows you to safely transfer ownership of data between threads
