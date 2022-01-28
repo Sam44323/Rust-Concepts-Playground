@@ -13,5 +13,5 @@ fn main() {
         thread::sleep(Duration::from_millis(1));
     }
 
-    handler.join().unwrap(); // even when the main thread get's over, the function will still run until the spawned thread is done
+    handler.join().unwrap(); // will block the main thread from finishing, until the thread attached with the handler finishes
 }
