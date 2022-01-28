@@ -7,7 +7,7 @@ use std::{thread, time::Duration};
 
 fn main() {
     let (sender, receiver) = mpsc::channel();
-    let another_sender = sender.clone(); // cloning the sender to another sender with same receiver but with another thread
+    let another_sender = sender.clone(); // cloning the sender to another sender with same receiver but for another thread
 
     /*
      * we are using move so that sender is scoped to the closure, cause passing senders between threads can be a security risk. If the receiving end is dropped due to some reason, the unwrap will panic and throw and error
