@@ -1,5 +1,5 @@
 use std::sync::mpsc;
-use std::thread;
+use std::{thread, time::Duration};
 
 /**
  * MPSC means, multi producer and single consumer. It means a channel can have multiple senders and one receiver.
@@ -20,9 +20,14 @@ fn main() {
         ];
         for msg in msg_list {
             sender.send(msg).unwrap(); // send will take ownership of msg
+            thread::sleep(Duration::from_millis(1));
         }
     });
 
-    let received = receiver.recv().expect("The receiver is offline!"); // recv will block the main thread execution while returning a result whereas the try_recv will return a result in immediate manner
-    println!("{}", received);
+    // treating the receiver as an iterator for receiving message over every iteration from the sender
+    for rcv in receiver {
+        println!("{}", rcv);
+    }
+
+    // let received = receiver.recv().expect("The receiver is offline!"); // recv will block the main thread execution while returning a result whereas the try_recv will return a result in immediate manner
 }
