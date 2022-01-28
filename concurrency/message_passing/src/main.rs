@@ -7,6 +7,7 @@ use std::{thread, time::Duration};
 
 fn main() {
     let (sender, receiver) = mpsc::channel();
+    let another_sender = sender.clone(); // cloning the receiver to another receiver with same sender but with another thread
 
     /*
      * we are using move so that sender is scoped to the closure, cause passing senders between threads can be a security risk. If the receiving end is dropped due to some reason, the unwrap will panic and throw and error
@@ -20,6 +21,19 @@ fn main() {
         ];
         for msg in msg_list {
             sender.send(msg).unwrap(); // send will take ownership of msg
+            thread::sleep(Duration::from_millis(1));
+        }
+    });
+
+    thread::spawn(move || {
+        let msg_list: Vec<String> = vec![
+            String::from("message"),
+            String::from("from"),
+            String::from("another"),
+            String::from("sender"),
+        ];
+        for msg in msg_list {
+            another_sender.send(msg).unwrap(); // send will take ownership of msg
             thread::sleep(Duration::from_millis(1));
         }
     });
