@@ -63,9 +63,14 @@ fn calling_external_functions() {
     }
 }
 
+// unsafe ability d
+
+fn modify_mutable_static_variable() {}
+
 fn main() {
     dereference_raw_pointers();
     calling_unsafe_functions();
     safe_abstraction_creator_over_unsafe_code();
     calling_external_functions();
+    modify_mutable_static_variable();
 }
