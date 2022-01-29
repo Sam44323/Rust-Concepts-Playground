@@ -54,6 +54,16 @@ fn destructure_pattern_matching() {
 
     let ((feet, inches), Point { x, y }) = ((3, 10), Point { x: 3, y: -10 });
     println!("Feet: {}, Inches: {}, x: {}, y: {}", feet, inches, x, y);
+
+    // ------------------------------------------------
+    // Value ignoring in patterns
+    // ------------------------------------------------
+
+    foo(10, 30)
+}
+
+fn foo(_: i32, y: i32) {
+    println!("y is {}", y);
 }
 
 fn main() {
