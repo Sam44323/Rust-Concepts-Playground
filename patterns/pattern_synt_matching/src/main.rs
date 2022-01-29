@@ -64,4 +64,10 @@ fn main() {
     for (index, value) in vec.iter().enumerate() {
         println!("{} is at index {}", value, index);
     }
+
+    // ------------------------------------------------
+    // let patterns (in other words it's destructuring)
+    // ------------------------------------------------
+    let (x, y, z) = (1, 2, 3);
+    println!("x: {}, y: {}, z: {}", x, y, z);
 }
