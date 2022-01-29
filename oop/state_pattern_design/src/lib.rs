@@ -71,9 +71,8 @@ impl Post {
 
   pub fn content(&self) -> &str {
     /*
-    *  as state is an option with boxed state, we need to unwrap it
-      to get the state
-    */
+     *  as state is an option with boxed state that owns the state object, so we use as_ref to get the reference to the state object along with that we need to unwrap it to get the state
+     */
     self.state.as_ref().unwrap().content(self);
   }
 
