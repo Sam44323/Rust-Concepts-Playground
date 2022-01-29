@@ -40,4 +40,18 @@ fn main() {
     } else {
         println!("No access for you!");
     }
+
+    // ------------------------------------------------
+    // while-let conditional expressions
+    // ------------------------------------------------
+
+    let mut stack: Vec<i32> = Vec::new();
+
+    stack.push(1);
+    stack.push(2);
+    stack.push(3);
+
+    while let Some(val) = stack.pop() {
+        println!("{}", val);
+    }
 }
