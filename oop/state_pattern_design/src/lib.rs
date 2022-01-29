@@ -22,4 +22,22 @@ impl DraftPost {
   pub fn add_text(&mut self, text: &str) {
     self.content.push_str(text)
   }
+
+  pub fn request_review(self) -> PendingReview {
+    PendingReview {
+      content: self.content,
+    }
+  }
+}
+
+pub struct PendingReview {
+  content: String,
+}
+
+impl PendingReview {
+  pub fn approve(self) -> Post {
+    Post {
+      content: self.content,
+    }
+  }
 }
