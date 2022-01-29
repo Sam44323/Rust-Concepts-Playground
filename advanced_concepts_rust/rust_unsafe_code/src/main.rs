@@ -37,7 +37,12 @@ fn calling_unsafe_functions() {
     }
 }
 
+// unsafe ability c
+
+fn safe_abstraction_creator_over_unsafe_code() {}
+
 fn main() {
     dereference_raw_pointers();
     calling_unsafe_functions();
+    safe_abstraction_creator_over_unsafe_code();
 }
