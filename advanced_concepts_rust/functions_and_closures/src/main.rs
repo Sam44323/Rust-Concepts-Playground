@@ -19,7 +19,15 @@ fn closure_returning() {
         |x| x + 1
     }
 
-    returns_closure();
+    // if you're returning based on internal closure type, the same Fn return won't work but we need a box wrapper so that it's same
+
+    fn multi_closure_checker(a: i32) -> Box<dyn Fn(i32) -> i32> {
+        if a > 0 {
+            Box::new(move |b| b + a)
+        } else {
+            Box::new(move |b| b - a)
+        }
+    }
 }
 
 fn main() {
