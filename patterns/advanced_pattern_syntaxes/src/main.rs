@@ -104,12 +104,27 @@ fn foo(_: i32, y: i32) {
 }
 
 fn match_guards_examples() {
+    // ------------------------------------------------
+    // Match guards example
+    // ------------------------------------------------
     let num = Some(4);
 
     match num {
         Some(x) if x < 5 => println!("less than five: {}", x),
         Some(x) => println!("{}", x),
         None => (),
+    }
+
+    // ------------------------------------------------
+    // Add combined value match guard
+    // ------------------------------------------------
+
+    let x = 4;
+    let y = false;
+
+    match x {
+        4 | 5 | 6 if y => println!("yes"),
+        _ => println!("no"),
     }
 }
 
