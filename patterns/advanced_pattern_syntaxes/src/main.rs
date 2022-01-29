@@ -72,6 +72,8 @@ fn destructure_pattern_matching() {
         (Some(_), Some(_)) => println!("Can't overwrite an existing customized value"),
         _ => setting_value = new_setting_value,
     }
+
+    println!("Setting value is: {:?}", setting_value);
 }
 
 fn foo(_: i32, y: i32) {
