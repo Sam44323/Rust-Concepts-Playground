@@ -20,8 +20,8 @@ _Monorepo for all the important concepts regarding RUST_
 - Cargo (Done)
 - Smart-Pointers (Done)
 - Concurrency (Done)
-- OOP (In-Progress...)
-- Patterns And Matching (Pending)
+- OOP (Done)
+- Patterns And Matching (In-Progress...)
 - Advanced-Features (Pending)
 - Project: Low Level Implementation for a Multi-threaded web-server (Pending)
 
