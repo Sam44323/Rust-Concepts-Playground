@@ -69,5 +69,9 @@ fn main() {
     // let patterns (in other words it's destructuring)
     // ------------------------------------------------
     let (x, y, z) = (1, 2, 3);
+
+    let (a, b, _) = (1, 2, 3); // pattern value destructuring ignorer
+
     println!("x: {}, y: {}, z: {}", x, y, z);
+    println!("a: {}, b: {}", a, b);
 }
