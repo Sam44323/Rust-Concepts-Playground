@@ -7,6 +7,8 @@ pub trait Draw {
 
 pub struct Screen<T: Draw>{}
 
+Trait objects in a nutshell, helps you to store any type of data that implements a certain trait thus leading to homogenous collections.
+
 */
 
 pub struct Screen {
