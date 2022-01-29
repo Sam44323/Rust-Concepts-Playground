@@ -19,7 +19,7 @@ fn closure_returning() {
         |x| x + 1
     }
 
-    // if you're returning based on internal closure type, the same Fn return won't work but we need a box wrapper so that it's same
+    // if you're returning based on internal closure type(multi closure options), the same Fn return won't work but we need a box wrapper so that it's same
 
     fn multi_closure_checker(a: i32) -> Box<dyn Fn(i32) -> i32> {
         if a > 0 {
