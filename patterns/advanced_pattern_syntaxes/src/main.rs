@@ -23,4 +23,15 @@ fn main() {
         Some(i) => println!("Value {}", i),
         _ => println!("none"),
     }
+
+    // ------------------------------------------------
+    // Multi pattern matching (such as using & or |)
+    // ------------------------------------------------
+
+    let x = 10;
+
+    match x {
+        1 | 2 | 3 | 4 | 5 => println!("one through five"),
+        _ => println!("something else"),
+    }
 }
