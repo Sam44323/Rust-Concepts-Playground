@@ -1,4 +1,4 @@
-// unsafe ability 1
+// unsafe ability a
 fn dereference_raw_pointers() {
     let mut num = 5;
 
@@ -26,6 +26,18 @@ fn dereference_raw_pointers() {
     }
 }
 
+// unsafe ability b
+fn calling_unsafe_functions() {
+    unsafe fn dangerous() {
+        println!("I am unsafe function!");
+    }
+
+    unsafe {
+        dangerous();
+    }
+}
+
 fn main() {
     dereference_raw_pointers();
+    calling_unsafe_functions();
 }
