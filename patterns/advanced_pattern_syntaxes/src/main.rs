@@ -103,6 +103,16 @@ fn foo(_: i32, y: i32) {
     println!("y is {}", y);
 }
 
+fn match_guards_examples() {
+    let num = Some(4);
+
+    match num {
+        Some(x) if x < 5 => println!("less than five: {}", x),
+        Some(x) => println!("{}", x),
+        None => {}
+    }
+}
+
 fn main() {
     // ------------------------------------------------
     // Matching the literals
@@ -160,4 +170,5 @@ fn main() {
     }
 
     destructure_pattern_matching();
+    match_guards_examples();
 }
