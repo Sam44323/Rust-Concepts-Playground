@@ -21,6 +21,6 @@ fn main() {
     match x {
         Some(10) => println!("ten"),
         Some(i) => println!("Value {}", i),
-        None => println!("none"),
+        _ => println!("none"),
     }
 }
