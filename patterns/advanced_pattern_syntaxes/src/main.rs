@@ -126,6 +126,24 @@ fn match_guards_examples() {
         4 | 5 | 6 if y => println!("yes"),
         _ => println!("no"),
     }
+
+    // ------------------------------------------------
+    // Bindings examples i.e. checking as well as storing values simultaneously during matching
+    // ------------------------------------------------
+
+    let data = Data::Hello { id: 5 };
+
+    match data {
+        Data::Hello {
+            id: id_variable @ 3..=7,
+        } => println!("id is {}", id_variable), // here we are checking if the id lies between 3 to 7 as well as storing the id variable in id_variable
+        Data::Hello { id: 10..=12 } => println!("id is {}", 10),
+        _ => (),
+    }
+}
+
+enum Data {
+    Hello { id: i32 },
 }
 
 fn main() {
