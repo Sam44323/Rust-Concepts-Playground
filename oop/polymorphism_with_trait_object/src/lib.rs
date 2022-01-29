@@ -31,6 +31,6 @@ pub struct Button {
 
 impl Draw for Button {
   fn draw(&self) {
-    // draw the button
+    println!("Drawing the button!")
   }
 }
