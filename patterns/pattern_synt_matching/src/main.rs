@@ -81,6 +81,25 @@ fn main() {
 
     let point = (3, 5);
     print_coordinates(&point);
+
+    // ------------------------------------------------
+    // types of patterns
+    // ------------------------------------------------
+
+    // irrefutable patterns are one that will always match
+    let x = 5;
+
+    // irrefutable patterns are one that might match or might not match
+
+    let x: Option<&str> = None;
+    if let Some(s) = x {
+        println!("{}", s);
+    }
+
+    // Can only accept irrefutable patterns
+    // function parameters
+    // let statements
+    // for loops
 }
 
 fn print_coordinates(&(x, y): &(i32, i32)) {
