@@ -74,4 +74,15 @@ fn main() {
 
     println!("x: {}, y: {}, z: {}", x, y, z);
     println!("a: {}, b: {}", a, b);
+
+    // ------------------------------------------------
+    // function parameters patter examples (with destructure)
+    // ------------------------------------------------
+
+    let point = (3, 5);
+    print_coordinates(&point);
+}
+
+fn print_coordinates(&(x, y): &(i32, i32)) {
+    println!("x: {}, y: {}", x, y);
 }
