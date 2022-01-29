@@ -18,6 +18,8 @@ fn closure_returning() {
     fn returns_closure() -> impl Fn(i32) -> i32 {
         |x| x + 1
     }
+
+    returns_closure();
 }
 
 fn main() {
