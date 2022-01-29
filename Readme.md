@@ -21,9 +21,9 @@ _Monorepo for all the important concepts regarding RUST_
 - Smart-Pointers (Done)
 - Concurrency (Done)
 - OOP (Done)
-- Patterns And Matching (In-Progress...)
-- Advanced-Features (Pending)
-- Project: Low Level Implementation for a Multi-threaded web-server (Pending)
+- Patterns And Matching (Done)
+- Advanced-Features (Done)
+- Project: Low Level Implementation for a Multi-threaded web-server (In-Progress...)
 
 ---
 
