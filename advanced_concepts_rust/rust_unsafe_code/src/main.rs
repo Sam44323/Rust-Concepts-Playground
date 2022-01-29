@@ -51,7 +51,17 @@ fn safe_abstraction_creator_over_unsafe_code() {
 
 // unsafe ability c
 
-fn calling_external_functions() {}
+// extern helps you to declare functions that are implemented in other languages or FFI
+
+extern "C" {
+    fn abs(input: i32) -> i32;
+}
+
+fn calling_external_functions() {
+    unsafe {
+        println!("Absolute value of -3 according to C: {}", abs(-3));
+    }
+}
 
 fn main() {
     dereference_raw_pointers();
