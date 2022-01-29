@@ -40,7 +40,10 @@ impl Post {
   }
 
   pub fn request_review(&mut self) {
-    self.state = Some(Box::new(PendingReview {}));
+    // take method takes the inner value out of the Option and places none so that when we call the request_review method we can call the method with the state and get the output that is desired
+    if let Some(state) = self.state.take() {
+      self.state = Some(state.request_review());
+    }
   }
 
   pub fn approve(&self) {}
