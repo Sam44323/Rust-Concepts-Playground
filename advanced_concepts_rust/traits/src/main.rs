@@ -71,9 +71,22 @@ fn method_overriding() {
     Pilot::fly(&human);
 }
 
+// supertrait, this means, if you implement a trait and a function of the trait depends on another trait that also should be implemented on the type then it's know as super-trait
+
+use std::fmt;
+
+fn super_trait() {
+    trait OutlinePrint: fmt::Display {
+        fn outline_print(&self) {
+            println!("Printing Outline {}", &self.to_string());
+        }
+    }
+}
+
 fn main() {
     println!("Hello, world!");
     associated_types_examples();
     default_generic_type_parameters();
     method_overriding();
+    super_trait();
 }
