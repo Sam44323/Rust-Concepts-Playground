@@ -1,6 +1,7 @@
 fn main() {
     // using the Match Expressions
     // ------------------------------------------------
+    #[derive(Debug)]
     enum Language {
         English,
         Spanish,
@@ -14,7 +15,7 @@ fn main() {
         Language::English => println!("English"),
         Language::Spanish => println!("Spanish"),
         Language::Russian => println!("Russian"),
-        _ => println!("Japanese"),
+        lang => println!("Unsupported language: {:?}", lang),
     }
 
     // ------------------------------------------------
