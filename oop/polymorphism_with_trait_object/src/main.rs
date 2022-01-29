@@ -31,4 +31,6 @@ fn main() {
             }),
         ],
     };
+
+    screen.run();
 }
