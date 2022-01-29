@@ -6,7 +6,7 @@ struct Point {
 fn destructure_pattern_matching() {
     let p = Point { x: 0, y: 7 };
 
-    let Point { x: a, y: b } = p; // destructuring the patterns with assigning x to a and y to b
+    let Point { x: a, y: b } = p; // destructuring the patterns with mapping x to a and y to b
     assert_eq!(0, a);
     assert_eq!(7, b);
 }
