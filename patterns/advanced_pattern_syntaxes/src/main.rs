@@ -80,6 +80,13 @@ fn destructure_pattern_matching() {
     // ------------------------------------------------
 
     let _x = 10; // if you want to ignore value then use underscore
+
+    // example of ignoring values for structs
+    let origin = Point { x: 10, y: 10 };
+
+    match origin {
+        Point { x, .. } => println!("x is {}", x),
+    }
 }
 
 fn foo(_: i32, y: i32) {
