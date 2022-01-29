@@ -1,6 +1,7 @@
 trait State {
   fn request_review(self: Box<Self>) -> Box<dyn State>;
   fn approve(self: Box<Self>) -> Box<dyn State>;
+  fn content(&self, post: &Post) -> &str;
 }
 
 struct Draft {}
@@ -12,6 +13,10 @@ impl State for Draft {
 
   fn approve(self: Box<Self>) -> Box<dyn State> {
     self
+  }
+
+  fn content(&self, post: &Post) -> &str {
+    ""
   }
 }
 
@@ -25,6 +30,10 @@ impl State for PendingReview {
   fn approve(self: Box<Self>) -> Box<dyn State> {
     return Box::new(Published {});
   }
+
+  fn content(&self, post: &Post) -> &str {
+    ""
+  }
 }
 
 struct Published {}
@@ -36,6 +45,10 @@ impl State for Published {
 
   fn approve(self: Box<Self>) -> Box<dyn State> {
     self
+  }
+
+  fn content(&self, post: &Post) -> &str {
+    post.content
   }
 }
 
@@ -57,7 +70,11 @@ impl Post {
   }
 
   pub fn content(&self) -> &str {
-    ""
+    /*
+    *  as state is an option with boxed state, we need to unwrap it
+      to get the state
+    */
+    self.state.as_ref().unwrap().content(self);
   }
 
   pub fn request_review(&mut self) {
