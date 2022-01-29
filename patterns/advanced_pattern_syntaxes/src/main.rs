@@ -34,4 +34,15 @@ fn main() {
         1 | 2 | 3 | 4 | 5 => println!("one through five"),
         _ => println!("something else"),
     }
+
+    // ------------------------------------------------
+    // Adding range patterns matching
+    // ------------------------------------------------
+
+    let x = 6;
+
+    match x {
+        1..=10 => println!("one through ten"),
+        _ => println!("something else"),
+    }
 }
