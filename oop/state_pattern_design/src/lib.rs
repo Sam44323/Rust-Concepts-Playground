@@ -67,5 +67,9 @@ impl Post {
     }
   }
 
-  pub fn approve(&self) {}
+  pub fn approve(&mut self) {
+    if let Some(state) = self.state.take() {
+      self.state = Some(state.approve());
+    }
+  }
 }
