@@ -87,6 +87,16 @@ fn destructure_pattern_matching() {
     match origin {
         Point { x, .. } => println!("x is {}", x),
     }
+
+    // example of multiple ignorer
+
+    let numbers = (1, 4, 8, 16, 32);
+
+    match numbers {
+        (first, .., fifth) => {
+            println!("Some numbers: {}, {}", first, fifth);
+        }
+    }
 }
 
 fn foo(_: i32, y: i32) {
