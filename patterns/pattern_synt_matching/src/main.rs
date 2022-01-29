@@ -76,7 +76,7 @@ fn main() {
     println!("a: {}, b: {}", a, b);
 
     // ------------------------------------------------
-    // function parameters patter examples (with destructure)
+    // function parameters patter examples (with destructure) [this destructuring of parameters also works with closures as well]
     // ------------------------------------------------
 
     let point = (3, 5);
