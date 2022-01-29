@@ -65,7 +65,16 @@ fn calling_external_functions() {
 
 // unsafe ability d
 
-fn modify_mutable_static_variable() {}
+static mut COUNTER: i32 = 0; // const as equal
+
+fn modify_mutable_static_variable() {
+    unsafe {
+        COUNTER += 1;
+    }
+    unsafe {
+        println!("COUNTER: {}", COUNTER);
+    }
+}
 
 fn main() {
     dereference_raw_pointers();
