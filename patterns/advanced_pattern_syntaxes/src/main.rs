@@ -3,11 +3,16 @@ struct Point {
     y: i32,
 }
 
+enum Color {
+    RGB(i32, i32, i32),
+    HSV(i32, i32, i32),
+}
+
 enum Message {
     Quit,
     Move { x: i32, y: i32 },
     Write(String),
-    ChangeColor(i32, i32, i32),
+    ChangeColor(Color),
 }
 
 fn destructure_pattern_matching() {
@@ -31,15 +36,16 @@ fn destructure_pattern_matching() {
 
     // Enums //
 
-    let msg = Message::ChangeColor(0, 160, 255);
+    let msg = Message::ChangeColor(Color::RGB(0, 0, 0));
 
     match msg {
         Message::Quit => println!("The Quit variant has no data to destructure."),
         Message::Move { x, y } => println!("x: {} y: {}", x, y),
         Message::Write(text) => println!("Text: {}", text),
-        Message::ChangeColor(r, g, b) => {
-            println!("Change the color to red: {}, green: {}, blue: {}", r, g, b)
-        }
+        Message::ChangeColor(color) => match color {
+            Color::RGB(r, g, b) => println!("Red: {}, Green: {}, Blue: {}", r, g, b),
+            Color::HSV(h, s, v) => println!("Hue: {}, Saturation: {}, Value: {}", h, s, v),
+        },
     }
 }
 
