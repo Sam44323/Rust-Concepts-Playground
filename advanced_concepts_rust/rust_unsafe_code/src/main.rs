@@ -54,7 +54,7 @@ fn safe_abstraction_creator_over_unsafe_code() {
 // extern helps you to declare functions that are implemented in other languages or FFI
 
 extern "C" {
-    fn abs(input: i32) -> i32;
+    fn abs(input: i32) -> i32; // the interface of the external function in another language that we want to call and rust then maps it to the ABI
 }
 
 fn calling_external_functions() {
