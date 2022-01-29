@@ -74,6 +74,12 @@ fn destructure_pattern_matching() {
     }
 
     println!("Setting value is: {:?}", setting_value);
+
+    // ------------------------------------------------
+    // Un-used value ignorer
+    // ------------------------------------------------
+
+    let _x = 10; // if you want to ignore value then use underscore
 }
 
 fn foo(_: i32, y: i32) {
