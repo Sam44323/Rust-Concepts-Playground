@@ -3,5 +3,5 @@ pub trait Draw {
 }
 
 pub struct Screen {
-  pub components: Vec<Box<dyn Draw>>, // implementing a trait object
+  pub components: Vec<Box<dyn Draw>>, // dyn Draw means our Box pointer will contain any type that contains the Draw trait
 }
