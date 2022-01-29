@@ -54,4 +54,14 @@ fn main() {
     while let Some(val) = stack.pop() {
         println!("{}", val);
     }
+
+    // ------------------------------------------------
+    // for loop expressions
+    // ------------------------------------------------
+
+    let vec: Vec<char> = vec!['a', 'b', 'c'];
+
+    for (index, value) in vec.iter().enumerate() {
+        println!("{} is at index {}", value, index);
+    }
 }
