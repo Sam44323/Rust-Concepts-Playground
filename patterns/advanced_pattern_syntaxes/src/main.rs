@@ -9,6 +9,18 @@ fn destructure_pattern_matching() {
     let Point { x: a, y: b } = p; // destructuring the patterns with mapping x to a and y to b {this is optional BTW, you can keep the variable destructuring as it is}
     assert_eq!(0, a);
     assert_eq!(7, b);
+
+    // ------------------------------------------------
+    // Custom pattern destructuring example
+    // ------------------------------------------------
+
+    // Structs //
+
+    match p {
+        Point { x, y: 0 } => println!("On the x axis at {}", x),
+        Point { x: 0, y } => println!("On the y axis at {}", y),
+        Point { x, y } => println!("On neither axis at ({}, {})", x, y),
+    }
 }
 
 fn main() {
