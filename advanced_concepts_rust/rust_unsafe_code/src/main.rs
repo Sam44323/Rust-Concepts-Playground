@@ -17,6 +17,13 @@ fn dereference_raw_pointers() {
 
     let a = &num as *const i32; // immutable raw pointer example is *const <type point to>
     let b = &mut num as *mut i32; // immutable raw pointer example is *mut <type point to>
+
+    // dereferencing raw pointers using unsafe block
+
+    unsafe {
+        println!("a is: {}", *a);
+        println!("b is: {}", *b);
+    }
 }
 
 fn main() {
