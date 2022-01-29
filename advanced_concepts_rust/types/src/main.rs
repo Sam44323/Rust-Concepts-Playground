@@ -7,6 +7,11 @@ fn type_aliases() {
     println!("x is {} and y is {}", x, y);
 }
 
+fn never_type() {
+    // never type is denoted by the `!` symbol which means that the function never returns
+}
+
 fn main() {
     type_aliases();
+    never_type();
 }
