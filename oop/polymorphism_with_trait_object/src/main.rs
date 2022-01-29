@@ -1,4 +1,4 @@
-use polymorphism_with_trait_object::{Button, Draw, Screen};
+use polymorphism_with_trait_object::*;
 
 struct SelectBox {
     width: u32,
