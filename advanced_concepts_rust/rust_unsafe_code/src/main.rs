@@ -39,10 +39,23 @@ fn calling_unsafe_functions() {
 
 // unsafe ability c
 
-fn safe_abstraction_creator_over_unsafe_code() {}
+fn safe_abstraction_creator_over_unsafe_code() {
+    let mut v = vec![1, 2, 3, 4, 5];
+    let a = &mut v[..];
+
+    let (x, y) = a.split_at_mut(3);
+
+    assert_eq!(x, &mut [1, 2, 3]);
+    assert_eq!(y, &mut [4, 5]);
+}
+
+// unsafe ability c
+
+fn calling_external_functions() {}
 
 fn main() {
     dereference_raw_pointers();
     calling_unsafe_functions();
     safe_abstraction_creator_over_unsafe_code();
+    calling_external_functions();
 }
