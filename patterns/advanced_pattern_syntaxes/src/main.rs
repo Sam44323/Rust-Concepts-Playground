@@ -1,3 +1,16 @@
+struct Point {
+    x: i32,
+    y: i32,
+}
+
+fn destructure_pattern_matching() {
+    let p = Point { x: 0, y: 7 };
+
+    let Point { x: a, y: b } = p; // destructuring the patterns with assigning x to a and y to b
+    assert_eq!(0, a);
+    assert_eq!(7, b);
+}
+
 fn main() {
     // ------------------------------------------------
     // Matching the literals
@@ -53,4 +66,6 @@ fn main() {
         'k'..='z' => println!("late letter"),
         _ => println!("This is something else"),
     }
+
+    destructure_pattern_matching();
 }
