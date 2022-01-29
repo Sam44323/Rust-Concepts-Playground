@@ -35,7 +35,45 @@ fn default_generic_type_parameters() {
     }
 }
 
+fn method_overriding() {
+    trait Pilot {
+        fn fly(&self);
+    }
+
+    trait Wizard {
+        fn fly(&self);
+    }
+
+    struct Human;
+
+    impl Human {
+        fn fly(&self) {
+            println!("This is your captain speaking.");
+        }
+    }
+
+    impl Pilot for Human {
+        fn fly(&self) {
+            println!("This is your copilot speaking.");
+        }
+    }
+
+    impl Wizard for Human {
+        fn fly(&self) {
+            println!("This is your wizard speaking.");
+        }
+    }
+
+    let human = Human;
+
+    human.fly();
+    // calling the same method from one of the implementations
+    Pilot::fly(&human);
+}
+
 fn main() {
     println!("Hello, world!");
     associated_types_examples();
+    default_generic_type_parameters();
+    method_overriding();
 }
