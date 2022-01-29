@@ -45,4 +45,12 @@ fn main() {
         1..=10 => println!("one through ten"),
         _ => println!("something else"),
     }
+
+    let x = 'c';
+
+    match x {
+        'a'..='j' => println!("early letter"),
+        'k'..='z' => println!("late letter"),
+        _ => println!("This is something else"),
+    }
 }
