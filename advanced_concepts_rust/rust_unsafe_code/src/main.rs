@@ -76,6 +76,16 @@ fn modify_mutable_static_variable() {
     }
 }
 
+// example of declaring unsafe traits
+
+unsafe trait Foo {
+    // methods
+}
+
+unsafe impl Foo for i32 {
+    // implementation for Foo_trait
+}
+
 fn main() {
     dereference_raw_pointers();
     calling_unsafe_functions();
