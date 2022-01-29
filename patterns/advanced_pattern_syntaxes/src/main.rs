@@ -47,6 +47,13 @@ fn destructure_pattern_matching() {
             Color::HSV(h, s, v) => println!("Hue: {}, Saturation: {}, Value: {}", h, s, v),
         },
     }
+
+    // ------------------------------------------------
+    // Complex destructuring example
+    // ------------------------------------------------
+
+    let ((feet, inches), Point { x, y }) = ((3, 10), Point { x: 3, y: -10 });
+    println!("Feet: {}, Inches: {}, x: {}, y: {}", feet, inches, x, y);
 }
 
 fn main() {
