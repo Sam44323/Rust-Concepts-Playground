@@ -16,4 +16,14 @@ impl Post {
       content: String::new(),
     }
   }
+
+  pub fn content(&self) -> &str {
+    &self.content
+  }
+
+  pub fn add_text(&self, text: &str) {}
+
+  pub fn request_review(&self) {}
+
+  pub fn approve(&self) {}
 }
