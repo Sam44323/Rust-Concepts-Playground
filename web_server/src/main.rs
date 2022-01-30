@@ -4,11 +4,10 @@ use std::net::{TcpListener, TcpStream};
 
 fn handle_connection(mut stream: TcpStream) {
     let mut buffer = [0; 1024]; // buffer to store the data from the stream
+    stream.read(&mut buffer).unwrap(); // sending the data from the stream to the buffer
     let get = b"GET / HTTP/1.1\r\n"; // the request we are looking for(converting to bytes for checking)
 
     if buffer.starts_with(get) {
-        stream.read(&mut buffer).unwrap(); // sending the data from the stream to the buffer
-
         let content = fs::read_to_string("index.html").unwrap(); // reading the file
 
         let response = format!(
