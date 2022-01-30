@@ -1,7 +1,7 @@
 use std::fs;
 use std::io::prelude::*;
 use std::net::{TcpListener, TcpStream};
-use threadpool::ThreadPool;
+// use threadpool::ThreadPool;
 
 fn handle_connection(mut stream: TcpStream) {
     let mut buffer = [0; 1024]; // buffer to store the data from the stream
@@ -27,7 +27,7 @@ fn handle_connection(mut stream: TcpStream) {
 }
 
 fn main() {
-    let pool = ThreadPool::new(10);
+    // let pool = ThreadPool::new(10);
     let listener = TcpListener::bind("127.0.0.1:7878").unwrap();
 
     // incoming gives an iterator over the connections being received in the form of a TCP-Stream
@@ -35,8 +35,8 @@ fn main() {
         let stream = stream.unwrap();
 
         // this will create a closure and will give a thread in the pool to execute the request
-        pool.execute(|| {
-            handle_connection(stream);
-        });
+        // pool.execute(|| {
+        handle_connection(stream);
+        // });
     }
 }
