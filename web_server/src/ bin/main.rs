@@ -1,6 +1,7 @@
 use std::fs;
 use std::io::prelude::*;
 use std::net::{TcpListener, TcpStream};
+use web_server::ThreadPool;
 
 fn handle_connection(mut stream: TcpStream) {
     let mut buffer = [0; 1024]; // buffer to store the data from the stream
