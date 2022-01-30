@@ -14,7 +14,7 @@ pub struct ThreadPool {
   sender: mpsc::Sender<Job>,
 }
 
-struct Job;
+type Job = Box<dyn FnOnce() + Send + 'static>;
 
 impl ThreadPool {
   /**
