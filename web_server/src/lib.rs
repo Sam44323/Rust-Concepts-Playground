@@ -50,11 +50,25 @@ impl ThreadPool {
   }
 }
 
+impl Drop for ThreadPool {
+  fn drop(&mut self) {
+    for worker in &mut self.workers {
+      println!("Shutting down worker {}!", worker.id);
+
+      if let Some(thread) = worker.thread.take()
+      // taking the join handler out and replacing it with None
+      {
+        thread.join().unwrap(); // join on the thread
+      }
+    }
+  }
+}
+
 // this struct will store the id of the thread which will be doing the work and the thread that waits for listening and handling the requests
 
 pub struct Worker {
   id: usize,
-  thread: thread::JoinHandle<()>,
+  thread: Option<thread::JoinHandle<()>>,
 }
 
 impl Worker {
@@ -65,6 +79,9 @@ impl Worker {
       println!("Worker {} got a job; executing.", id);
       job();
     });
-    Worker { id, thread }
+    Worker {
+      id,
+      thread: Some(thread),
+    }
   }
 }
