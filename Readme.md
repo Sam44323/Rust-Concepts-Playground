@@ -23,7 +23,7 @@ _Monorepo for all the important concepts regarding RUST_
 - OOP (Done)
 - Patterns And Matching (Done)
 - Advanced-Features (Done)
-- Project: Low Level Implementation for a Multi-threaded web-server (In-Progress...)
+- Project: Low Level Implementation for a Multi-threaded web-server (Done)
 
 ---
 
