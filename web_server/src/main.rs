@@ -19,6 +19,15 @@ fn handle_connection(mut stream: TcpStream) {
         stream.write(response.as_bytes()).unwrap();
         stream.flush().unwrap(); // flush will send the data to the client when the entire write process is completed
     } else {
+        let content = fs::read_to_string("404.html").unwrap();
+
+        let response = format!(
+            "HTTP/1.1 404 NOT FOUND\r\nContent-Length: {}\r\n\r\n{}",
+            content.len(),
+            content
+        );
+        stream.write(response.as_bytes()).unwrap();
+        stream.flush().unwrap(); // flush will send the data to the client when the entire write process is completed
     }
 }
 
