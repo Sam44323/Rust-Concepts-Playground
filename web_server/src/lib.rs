@@ -11,10 +11,15 @@ use std::thread;
 
 pub struct ThreadPool {
   workers: Vec<Worker>,
-  sender: mpsc::Sender<Job>,
+  sender: mpsc::Sender<Message>,
 }
 
 type Job = Box<dyn FnOnce() + Send + 'static>;
+
+enum Message {
+  NewJob(Job),
+  Terminate,
+}
 
 impl ThreadPool {
   /**
@@ -46,19 +51,23 @@ impl ThreadPool {
     F: FnOnce() + Send + 'static,
   {
     let job = Box::new(f);
-    self.sender.send(job).unwrap(); // sending the job to one of the threads in the pool
+    self.sender.send(Message::NewJob(job)).unwrap(); // sending the job to one of the threads in the pool
   }
 }
 
 impl Drop for ThreadPool {
   fn drop(&mut self) {
+    for _ in &mut self.workers {
+      self.sender.send(Message::Terminate).unwrap();
+    }
+
     for worker in &mut self.workers {
       println!("Shutting down worker {}!", worker.id);
 
       if let Some(thread) = worker.thread.take()
       // taking the join handler out and replacing it with None
       {
-        thread.join().unwrap(); // join on the thread
+        thread.join().unwrap(); // waiting for the thread to complete their job before shut-down
       }
     }
   }
@@ -72,12 +81,19 @@ pub struct Worker {
 }
 
 impl Worker {
-  fn new(id: usize, receiver: Arc<Mutex<mpsc::Receiver<Job>>>) -> Worker {
+  fn new(id: usize, receiver: Arc<Mutex<mpsc::Receiver<Message>>>) -> Worker {
     let thread = thread::spawn(move || loop {
       let job = receiver.lock().unwrap().recv().unwrap(); // calling lock to get the the mutex and then calling recv to get the job from the receiver
-
-      println!("Worker {} got a job; executing.", id);
-      job();
+      match job {
+        Message::NewJob(job) => {
+          println!("Worker {} got a job; executing.", id);
+          job();
+        }
+        Message::Terminate => {
+          println!("Worker {} was told to terminate", id);
+          break;
+        }
+      }
     });
     Worker {
       id,
