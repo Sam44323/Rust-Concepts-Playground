@@ -6,7 +6,9 @@ fn handle_connection(mut stream: TcpStream) {
 
     stream.read(&mut buffer).unwrap(); // sending the data from the stream to the buffer
 
-    println!("Request: {}", String::from_utf8_lossy(&buffer[..])); // from_utf8_lossy is a method that converts a slice of bytes into string including invalid character
+    let response = "HTTP/1.1 200 OK\r\n\r\n";
+    stream.write(response.as_bytes()).unwrap();
+    stream.flush().unwrap(); // flush will send the data to the client when the entire write process is completed
 }
 
 fn main() {
