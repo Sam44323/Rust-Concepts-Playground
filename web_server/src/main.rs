@@ -7,27 +7,22 @@ fn handle_connection(mut stream: TcpStream) {
     stream.read(&mut buffer).unwrap(); // sending the data from the stream to the buffer
     let get = b"GET / HTTP/1.1\r\n"; // the request we are looking for(converting to bytes for checking)
 
-    if buffer.starts_with(get) {
-        let content = fs::read_to_string("index.html").unwrap(); // reading the file
-
-        let response = format!(
-            "HTTP/1.1 200 OK\r\nContent-Length: {}\r\n\r\n{}",
-            content.len(),
-            content
-        );
-        stream.write(response.as_bytes()).unwrap();
-        stream.flush().unwrap(); // flush will send the data to the client when the entire write process is completed
+    let (status_line, filename) = if buffer.starts_with(get) {
+        ("HTTP/1.1 200 OK", "index.html")
     } else {
-        let content = fs::read_to_string("404.html").unwrap();
+        ("HTTP/1.1 404 NOT FOUND", "404.html")
+    };
 
-        let response = format!(
-            "HTTP/1.1 404 NOT FOUND\r\nContent-Length: {}\r\n\r\n{}",
-            content.len(),
-            content
-        );
-        stream.write(response.as_bytes()).unwrap();
-        stream.flush().unwrap(); // flush will send the data to the client when the entire write process is completed
-    }
+    let contents = fs::read_to_string(filename).unwrap();
+
+    let response = format!(
+        "{}\r\nContent-Length: {}\r\n\r\n{}",
+        status_line,
+        contents.len(),
+        contents
+    );
+    stream.write(response.as_bytes()).unwrap();
+    stream.flush().unwrap(); // flush will send the data to the client when the entire write process is completed
 }
 
 fn main() {
