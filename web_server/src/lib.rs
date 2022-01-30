@@ -10,13 +10,6 @@ pub struct ThreadPool {
   threads: Vec<thread::JoinHandle<()>>,
 }
 
-// this struct will store the id of the thread which will be doing the work and the thread that waits for listening and handling the requests
-
-pub struct Worker {
-  id: usize,
-  thread: thread::JoinHandle<()>,
-}
-
 impl ThreadPool {
   /**
    * Create a new ThreadPool.
@@ -42,5 +35,19 @@ impl ThreadPool {
   where
     F: FnOnce() + Send + 'static,
   {
+  }
+}
+
+// this struct will store the id of the thread which will be doing the work and the thread that waits for listening and handling the requests
+
+pub struct Worker {
+  id: usize,
+  thread: thread::JoinHandle<()>,
+}
+
+impl Worker {
+  pub fn new(id: usize) -> Worker {
+    let thread = thread::spawn(|| {});
+    Worker { id, thread }
   }
 }
