@@ -2,6 +2,7 @@ use std::thread;
 
 /**
  * Use of JoinHandler struct
+ *
  * An owned permission to join on a thread (block on its termination). A JoinHandle detaches the associated thread when it is dropped, which means that there is no longer any handle to thread and no way to join on it.
  */
 
