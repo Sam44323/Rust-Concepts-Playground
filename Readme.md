@@ -1,4 +1,4 @@
-# Rust demo playground
+# Rust concepts playground
 
 _Monorepo for all the important concepts regarding rust_
 
